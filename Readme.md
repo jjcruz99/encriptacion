@@ -1,0 +1,1 @@
+Sistema para encriptar datos en varios formatos.
