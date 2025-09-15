@@ -1,0 +1,9 @@
+/*SMACSS (Scalable and Modular Architecture for CSS).*/
+@import url('base/_reset.css');
+@import url('base/_typography.css');
+@import url('layout/_header.css');
+@import url('layout/_footer.css');
+@import url('components/_button.css');
+@import url('components/_card.css');
+@import url('components/_form.css');
+@import url('utilities/_helpers.css');
