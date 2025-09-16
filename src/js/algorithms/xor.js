@@ -1,25 +1,39 @@
-function xorStrings(text, key) {
-  let result = '';
-  for (let i = 0; i < text.length; i++) {
-    // Obtiene el código del caracter del texto
-    const textCharCode = text.charCodeAt(i);
+// src/js/algorithms/xor.js
+
+/**
+ * Realiza una operación XOR bit a bit en dos cadenas hexadecimales.
+ * @param {string} hex1 La primera cadena hexadecimal.
+ * @param {string} hex2 La segunda cadena hexadecimal.
+ * @returns {string} El resultado de la operación XOR en cadena hexadecimal.
+ */
+export function xor(hex1, hex2) {
+    // Asegurarse de que ambas cadenas hexadecimales tengan la misma longitud
+    if (hex1.length !== hex2.length) {
+        throw new Error("Las cadenas hexadecimales deben tener la misma longitud.");
+    }
+
+    let result = '';
     
-    // Obtiene el código del caracter de la clave (repitiéndola si es necesario)
-    const keyCharCode = key.charCodeAt(i % key.length);
+    // Iterar a través de las cadenas en pares de dos caracteres (bytes)
+    for (let i = 0; i < hex1.length; i += 2) {
+        // Obtener los bytes como subcadenas
+        const byte1 = hex1.substring(i, i + 2);
+        const byte2 = hex2.substring(i, i + 2);
 
-    // Realiza la operación XOR y convierte el resultado de nuevo a un caracter
-    result += String.fromCharCode(textCharCode ^ keyCharCode);
-  }
-  return result;
+        // Convertir los bytes hexadecimales a enteros
+        const int1 = parseInt(byte1, 16);
+        const int2 = parseInt(byte2, 16);
+
+        // Realizar la operación XOR bit a bit
+        const xorResult = int1 ^ int2;
+
+        // Convertir el resultado entero de nuevo a una cadena hexadecimal
+        // padStart(2, '0') asegura que el resultado tenga siempre dos dígitos (ej. 'a' se vuelve '0a')
+        const hexResult = xorResult.toString(16).padStart(2, '0');
+
+        // Añadir el resultado a la cadena final
+        result += hexResult;
+    }
+
+    return result;
 }
-
-// --- Ejemplo de uso ---
-const mensajeOriginal = "Hola Mundo";
-const clave = "secreto";
-
-const mensajeCifrado = xorStrings(mensajeOriginal, clave);
-console.log("Cifrado:", mensajeCifrado);
-
-// Para descifrar, se aplica la misma operación con la misma clave
-const mensajeDescifrado = xorStrings(mensajeCifrado, clave);
-console.log("Descifrado:", mensajeDescifrado);

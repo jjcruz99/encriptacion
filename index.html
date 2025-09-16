@@ -8,12 +8,60 @@
 </head>
 <body>
     <header>
-        <h1>Sistema de encriptación</h1>
+        <h1 id="titulo-principal">Sistema de encriptación</h1>
     </header>
     <main>
-        <header>
-            
-        </header>     
+        <section>
+            <h2 class="subtitulo">Encriptacion tarjeta</h2>
+            <div>
+                <label for="">Numero de tarjate</label>
+                <input type="text" id="numero-tarjeta" maxlength="16" placeholder="0000 0000 0000 0000">
+            </div>
+            <div>
+                <button>Encriptar</button>
+            </div>
+            <div>
+                <label for="">Resultado</label>
+                <input type="text" id="resultado-tarjeta" readonly>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="subtitulo">Encriptacion pinBlock</h2>
+            <div>
+                <label for="">Numero de tarjate</label>
+                <input type="text" id="numero-tarjeta" maxlength="16" placeholder="0000 0000 0000 0000">
+            </div>
+            <div>
+                <label for="">PIN</label>
+                <input type="text" id="numero-pin" maxlength="4" placeholder="0000">
+            </div>
+            <div>
+                <button>Calcular</button>
+            </div>
+            <div>
+                <label for="">Resultado XOR</label>
+                <input type="text" id="resultado-pinblock" readonly>
+            </div>
+        </section>   
+        <section>
+            <h2 class="subtitulo">Calculo XOR</h2>
+            <div >
+                <label for="">Dato 1</label>
+                <input type="text" id="dato1"  placeholder="44818500aec1080d">
+            </div>
+            <div >
+                <label for="">Dato 2</label>
+                <input type="text" id="dato1"  placeholder="44818500aec1080d">
+            </div>
+            <div>
+                <button>Calcular XOR</button>
+            </div>
+            <div>   
+                <label for="">Resultado XOR</label>
+                <input type="text" id="resultado-xor" readonly> 
+            </div>
+        </section>       
     </main>
     <footer>
         <h6>Desarrollador Cruz</h6>
@@ -21,7 +69,8 @@
 
     <script src="src/js/libs/crypto-js.js"></script>
     <script src="src/js/algorithms/des.js" type="module"></script>
+    <script src="src/js/algorithms/texto-hex.js"></script>
     <script src="src/js/main.js" type="module"></script>
-    <script src="src/js/algorithms/xor.js" type="module"></script>
+    
 </body>
 </html>
