@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/css/">
+    <link rel="stylesheet" href="src/css/main.css">
+    <link rel="icon" href="src/pictures/icon_candado.png" type="image/x-icon" >
     <title>Encrip</title>
 </head>
 <body>
@@ -12,10 +13,14 @@
     </header>
     <main>
         <section>
-            <h2 class="subtitulo">Encriptacion tarjeta</h2>
+            <h2 class="subtitulo">Encriptacion</h2>
             <div>
-                <label for="">Numero de tarjate</label>
-                <input type="text" id="numero-tarjeta" maxlength="16" placeholder="0000 0000 0000 0000">
+                <label for="">Dato</label>
+                <input type="text" id="dato-encriptar"  placeholder="0000FFFF0000FFFF">
+            </div>
+            <div>
+                <label for="">KEY</label>
+                <input type="text" id="clave-encriptar"  placeholder="0000FFFF0000FFFFAAAA">
             </div>
             <div>
                 <button>Encriptar</button>
@@ -29,7 +34,7 @@
         <section>
             <h2 class="subtitulo">Encriptacion pinBlock</h2>
             <div>
-                <label for="">Numero de tarjate</label>
+                <label for="">Numero de tarjeta</label>
                 <input type="text" id="numero-tarjeta" maxlength="16" placeholder="0000 0000 0000 0000">
             </div>
             <div>
@@ -37,10 +42,14 @@
                 <input type="text" id="numero-pin" maxlength="4" placeholder="0000">
             </div>
             <div>
+                <label for="">KEY</label>
+                <input type="text" id="clave-pinblock"  placeholder="0000FFFF0000FFFFAAAA">
+            </div>
+            <div>
                 <button>Calcular</button>
             </div>
             <div>
-                <label for="">Resultado XOR</label>
+                <label for="">Resultado PinBlock</label>
                 <input type="text" id="resultado-pinblock" readonly>
             </div>
         </section>   
