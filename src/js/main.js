@@ -4,6 +4,17 @@ import { encryptDES, decryptDES } from './algorithms/des.js';
 import { xor } from './algorithms/xor.js';
 import { textoAHex } from './algorithms/texto-hex.js';
 
+
+document.getElementById('boton-encriptar').addEventListener('click', () => {
+    const dato = document.getElementById('dato-encriptar').value;
+    const clave = document.getElementById('clave-encriptar').value; 
+
+    const resultadoHex = textoAHex(dato);
+
+    document.getElementById('resultado-encriptacion').value = `HEX : ${resultadoHex}`;
+
+});
+
 console.log("\nPrueba de encriptación DES:");
 const message = "Hola, este es un mensaje secreto.";
 const key = "miClave";
@@ -28,10 +39,3 @@ console.log(`DATO1:     ${dato1}`);
 console.log(`DATO2:     ${dato2}`);
 console.log(`RESULTADO XOR : ${resultado}`);
 
-// Prueba de la función textoAHex
-console.log("\nPrueba de la función textoAHex:");
-const dato = '4481850043698745';
-const resultadoHex = textoAHex(dato);
-
-console.log(`Texto de entrada: ${dato}`);
-console.log(`Resultado hexadecimal: ${resultadoHex}`);
