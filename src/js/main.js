@@ -20,10 +20,10 @@ function encriptarDato() {
     document.getElementById('resultado-encriptacion').value += `\nAES-ECB: ${datoEncriptado}`;
     
     if (datoEncriptado === resultadoEsperado) {
-        alert('Resultado Correcto');
+        console.log('Resultado Correcto');
     }
     else {
-        alert('Resultado Incorrecto');
+        console.log('Resultado Incorrecto');
     }
 
     //encriptar base64
