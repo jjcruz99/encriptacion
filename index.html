@@ -27,7 +27,7 @@
             </div>
             <div>
                 <label for="">Resultado</label>
-                <input type="text" id="resultado-encriptacion" size="100" readonly>
+                <textarea  id="resultado-encriptacion" rows="6" cols="60" readonly></textarea>
             </div>
         </section>
 
@@ -46,11 +46,15 @@
                 <input type="text" id="clave-pinblock"  placeholder="0000FFFF0000FFFFAAAA">
             </div>
             <div>
-                <button>Calcular</button>
+                <label for="">IV</label>
+                <input type="text" id="vector"  placeholder="000000000000000">
+            </div>
+            <div>
+                <button id="boton-pinblok">Calcular</button>
             </div>
             <div>
                 <label for="">Resultado PinBlock</label>
-                <input type="text" id="resultado-pinblock" readonly>
+                <textarea id="resultado-pinblock" rows="4" cols="50" readonly> </textarea>
             </div>
         </section>   
         <section>
@@ -61,14 +65,14 @@
             </div>
             <div >
                 <label for="">Dato 2</label>
-                <input type="text" id="dato1"  placeholder="44818500aec1080d">
+                <input type="text" id="dato2"  placeholder="44818500aec1080d">
             </div>
             <div>
-                <button>Calcular XOR</button>
+                <button id="boton-xor">Calcular XOR</button>
             </div>
             <div>   
                 <label for="">Resultado XOR</label>
-                <input type="text" id="resultado-xor" readonly> 
+                <textarea  id="resultado-xor" rows="4" cols="60" readonly> </textarea>
             </div>
         </section>       
     </main>
