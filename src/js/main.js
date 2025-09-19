@@ -1,9 +1,8 @@
 // Prueba de encriptación DES
 
-import { encryptDES, decryptDES } from './algorithms/des.js';
 import { xor } from './algorithms/xor.js';
 import { textoAHex } from './algorithms/texto-hex.js';
-import {encryptAES_ECB, encryptAES_ECB_WithPadding} from './algorithms/aes.js';
+import {encryptAES_ECB_CustomZeroPadding} from './algorithms/aes.js';
 
 
 function encriptarDato() {
@@ -16,17 +15,20 @@ function encriptarDato() {
     document.getElementById('resultado-encriptacion').value = `\nHEX : ${resultadoHex}`;
 
     // encriptar dato EAS ECB
-    const datoEncriptado = encryptAES_ECB(resultadoHex, clave);
-    //const datosEncriptadosConPadding = encryptAES_ECB_WithPadding(datosEntrada, clave);
-    document.getElementById('resultado-encriptacion').value += `\nAES-ECB : ${datoEncriptado}`;
+    const datoEncriptado = encryptAES_ECB_CustomZeroPadding(resultadoHex, clave);
+    const resultadoEsperado = '210e9d865b666174122718f4bb6b7a6e';
+    document.getElementById('resultado-encriptacion').value += `\nAES-ECB: ${datoEncriptado}`;
+    
+    if (datoEncriptado === resultadoEsperado) {
+        alert('Resultado Correcto');
+    }
+    else {
+        alert('Resultado Incorrecto');
+    }
 
     //encriptar base64
-    
 
 }
-
-
-
 
 
 
@@ -57,18 +59,5 @@ document.getElementById('boton-encriptar').addEventListener('click', encriptarDa
 
 
 
-//Prueba de encriptación DES
-console.log("\nPrueba de encriptación DES:");
-const message = "Hola, este es un mensaje secreto.";
-const key = "miClave";
-
-// Encriptamos el mensaje usando la función que definiste
-const encrypted = encryptDES(message, key);
-console.log("Mensaje encriptado:", encrypted);
-
-// Desencriptamos el mensaje
-const decrypted = decryptDES(encrypted, key);
-console.log("Mensaje desencriptado:", decrypted);
-
-
+console.log("Main JS cargado correctamente.");
 
