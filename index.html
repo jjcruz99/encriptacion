@@ -15,18 +15,18 @@
         <section>
             <h2 class="subtitulo">Encriptacion</h2>
             <div>
-                <label for="">Dato</label>
+                <label for="dato-encriptar" id="etiqueta-dato-encriptar">Dato</label>
                 <input type="text" id="dato-encriptar"  placeholder="0000FFFF0000FFFF">
             </div>
             <div>
-                <label for="">KEY</label>
+                <label for="clave-encriptar" id="etiqueta-clave-encriptar">KEY</label>
                 <input type="text" id="clave-encriptar" size="40" placeholder="0000FFFF0000FFFFAAAAFFFF0000FFFF">
             </div>
             <div>
                 <button id="boton-encriptar">Encriptar</button>
             </div>
             <div>
-                <label for="">Resultado</label>
+                <label for="resultado-encriptacion" id="etiqueta-resultado-encriptacion">Resultado</label>
                 <textarea  id="resultado-encriptacion" rows="6" cols="60" readonly></textarea>
             </div>
         </section>
@@ -34,44 +34,44 @@
         <section>
             <h2 class="subtitulo">Encriptacion pinBlock</h2>
             <div>
-                <label for="">Numero de tarjeta</label>
+                <label for="numero-tarjeta" id="etiqueta-numero-tarjeta">Numero de tarjeta</label>
                 <input type="text" id="numero-tarjeta" maxlength="16" placeholder="0000 0000 0000 0000">
             </div>
             <div>
-                <label for="">PIN</label>
+                <label for="numero-pin" id="etiqueta-numero-pin">PIN</label>
                 <input type="text" id="numero-pin" maxlength="4" placeholder="0000">
             </div>
             <div>
-                <label for="">KEY</label>
+                <label for="clave-pinblock" id="etiqueta-clave-pinblock">KEY</label>
                 <input type="text" id="clave-pinblock"  placeholder="0000FFFF0000FFFFAAAA">
             </div>
             <div>
-                <label for="">IV</label>
+                <label for="vector" id="etiqueta-vector">IV</label>
                 <input type="text" id="vector"  placeholder="000000000000000">
             </div>
             <div>
                 <button id="boton-pinblok">Calcular</button>
             </div>
             <div>
-                <label for="">Resultado PinBlock</label>
+                <label for="resultado-pinblock" id="etiqueta-resultado-pinblock">Resultado PinBlock</label>
                 <textarea id="resultado-pinblock" rows="4" cols="50" readonly> </textarea>
             </div>
         </section>   
         <section>
             <h2 class="subtitulo">Calculo XOR</h2>
             <div >
-                <label for="">Dato 1</label>
+                <label for="dato1" id="etiqueta-dato1">Dato 1</label>
                 <input type="text" id="dato1"  placeholder="44818500aec1080d">
             </div>
             <div >
-                <label for="">Dato 2</label>
+                <label for="dato2" id="etiqueta-dato2">Dato 2</label>
                 <input type="text" id="dato2"  placeholder="44818500aec1080d">
             </div>
             <div>
                 <button id="boton-xor">Calcular XOR</button>
             </div>
             <div>   
-                <label for="">Resultado XOR</label>
+                <label for="resultado-xor" id="etiqueta-resultado-xor">Resultado XOR</label>
                 <textarea  id="resultado-xor" rows="4" cols="60" readonly> </textarea>
             </div>
         </section>       

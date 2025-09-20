@@ -1,4 +1,6 @@
 # Estructura del proyecto
+
+```
 ├── index.html
 ├── Readme.md
 ├── src/
@@ -22,16 +24,16 @@
 │   │   │   ├── 3des.js
 │   │   │   ├── aes.js
 │   │   │   ├── des.js
-│   │   │   ├── pin-ansi.js
-│   │   │   └── xor.js
 │   │   ├── libs/
 │   │   │   └── crypto-js.js
 │   │   ├── utils/
-│   │   │   └── base64.js
+│   │   │   ├── base64.js
+│   │   │   ├── texto-hex.js
+│   │   │   └── xor.js
+│   │   │   └── pin-ansi.js
 │   │   └── main.js
 │   └── pictures/
-
-Sistema para encriptar datos en varios formatos.
+```
 
 # Librerias y documentacion
 https://github.com/brix/crypto-js/blob/develop/src/aes.js

@@ -1,8 +1,9 @@
 // Prueba de encriptación DES
 
-import { xor } from './algorithms/xor.js';
-import { textoAHex } from './algorithms/texto-hex.js';
+import { xor } from './utils/xor.js';
+import { textoAHex } from './utils/texto-hex.js';
 import {encryptAES_ECB_CustomZeroPadding} from './algorithms/aes.js';
+import { hexToBase64 } from './utils/base64.js';
 
 
 function encriptarDato() {
@@ -16,22 +17,25 @@ function encriptarDato() {
 
     // encriptar dato EAS ECB
     const datoEncriptado = encryptAES_ECB_CustomZeroPadding(resultadoHex, clave);
-    const resultadoEsperado = '210e9d865b666174122718f4bb6b7a6e';
+    const resultadoEsperado = '6ec2f958b10cda34786fbd8fd648339f';
     document.getElementById('resultado-encriptacion').value += `\nAES-ECB: ${datoEncriptado}`;
     
     if (datoEncriptado === resultadoEsperado) {
-        console.log('Resultado Correcto');
+        console.log('Resultado EAS Correcto');
     }
     else {
         console.log('Resultado Incorrecto');
     }
 
     //encriptar base64
+    const datoBase64 = hexToBase64(datoEncriptado);
+    const base64Esperado = 'bsL5WLEM2jR4b72P1kgznw==';
+    document.getElementById('resultado-encriptacion').value += `\nBase64: ${datoBase64}`;
 
+    if (datoBase64 === base64Esperado) {
+        console.log('Resultado Base64 Correcto');
+    }   else { console.log('Base64 Incorrecto'); }       
 }
-
-
-
 
 
 
