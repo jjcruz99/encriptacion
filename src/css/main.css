@@ -4,6 +4,7 @@
 
 /* 2. Components (elementos reutilizables) */
 @import 'componets/button.css';
+@import 'componets/img.css';
 @import 'componets/input.css';
 @import 'componets/label.css';
 @import 'componets/textarea.css';
@@ -14,4 +15,5 @@
 @import 'layout/header.css';
 
 /* 4. Utilities (clases de ayuda) */
+@import 'utilities/animations.css';
 @import 'utilities/helpers.css';

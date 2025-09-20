@@ -1,10 +1,10 @@
 header {
-  background-image: linear-gradient(to right top, #62bf04, #5cc800, #55d200, #4adb00, #3be500, #10e854, #00e97d, #00e99e, #00ddcd, #00cdee, #00b9fc, #44a1f2);
+  display: flex;
+  flex-direction: row;
+  background-image: linear-gradient(to bottom, #0df205, #0df205, #0df205, #0df205, #0df205, #25ee03, #32e901, #3be500, #4adb00, #55d200, #5cc800, #62bf04);
   padding: 1rem 0;
-  border-bottom: 1px solid #ddd;
+  text-align: center;
+  justify-content: center;
+  gap: 3rem;
 }
 
-#titulo-principal {
-  text-align: center;
-  color: #0D0D0D;
-}

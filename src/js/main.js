@@ -53,7 +53,7 @@ function calcularXOR() {
     const dato1 = document.getElementById('dato1').value;
     const dato2 = document.getElementById('dato2').value;
     const resultado = xor(dato1, dato2);
-    document.getElementById('resultado-xor').value = resultado;
+    document.getElementById('resultado-xor').value = `\n ${resultado}`;
 }
 
 

@@ -3,75 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/css/main.css">
     <link rel="icon" href="src/pictures/icon_candado.png" type="image/x-icon" >
     <title>Encrip</title>
 </head>
 <body>
     <header>
+        <img src="src/pictures/icon_candado.png" alt="logo" id="logo">
         <h1 id="titulo-principal">Sistema de encriptación</h1>
     </header>
     <main>
         <section class = "contenedor-principal">
-            <h2 class="subtitulo">Encriptacion</h2>
-            <div>
-                <label for="dato-encriptar" id="etiqueta-dato-encriptar">Dato</label>
-                <input type="text" id="dato-encriptar" size="40" placeholder="0000FFFF0000FFFF">
+            <div class="contenedor-subtitulo">
+                <h2 class="subtitulo">Encriptacion EAS</h2>
             </div>
             <div>
-                <label for="clave-encriptar" id="etiqueta-clave-encriptar">KEY</label>
+                <label for="dato-encriptar" id="etiqueta-dato-encriptar">💳Dato</label>
+                <input type="text" id="dato-encriptar" size="40" placeholder="0000FFFF0000FFFF">     
+            </div>
+            <div>
+                <label for="clave-encriptar" id="etiqueta-clave-encriptar">🔑KEY</label>
                 <input type="text" id="clave-encriptar" size="40" placeholder="0000FFFF0000FFFFAAAAFFFF0000FFFF">
             </div>
             <div>
                 <button id="boton-encriptar">Encriptar</button>
             </div>
             <div class="contenedor-resultado">
-                <label for="resultado-encriptacion" id="etiqueta-resultado-encriptacion">Resultado</label>
+                <label for="resultado-encriptacion" id="etiqueta-resultado-encriptacion" class="etiqueta-resultado">Resultado EAS</label>
                 <textarea  id="resultado-encriptacion" rows="5" cols="60" readonly></textarea>
             </div>
         </section>
 
         <section class = "contenedor-principal">
+            <div class="contenedor-subtitulo">
             <h2 class="subtitulo">Encriptacion pinBlock</h2>
+            </div>
             <div>
-                <label for="numero-tarjeta" id="etiqueta-numero-tarjeta">N° de tarjeta</label>
+                <label for="numero-tarjeta" id="etiqueta-numero-tarjeta">💳N° de tarjeta</label>
                 <input type="text" id="numero-tarjeta" size="16" placeholder="0000 0000 0000 0000">
             </div>
             <div>
-                <label for="numero-pin" id="etiqueta-numero-pin">PIN</label>
+                <label for="numero-pin" id="etiqueta-numero-pin">🔑PIN</label>
                 <input type="text" id="numero-pin" size="16" maxlength="4" placeholder="0000">
             </div>
             <div>
-                <label for="clave-pinblock" id="etiqueta-clave-pinblock">KEY</label>
+                <label for="clave-pinblock" id="etiqueta-clave-pinblock">🔐KEY</label>
                 <input type="text" id="clave-pinblock" size="32" placeholder="0000FFFF0000FFFFAAAA">
             </div>
             <div>
-                <label for="vector" id="etiqueta-vector">IV</label>
-                <input type="text" id="vector" size="32" placeholder="000000000000000">
+                <label for="vector" id="etiqueta-vector">🔏IV</label>
+                <input type="text" id="vector" size="32" placeholder="000000000000000" value="0000000000000000">
             </div>
             <div>
                 <button id="boton-pinblok">Calcular</button>
             </div>
             <div class="contenedor-resultado">
-                <label for="resultado-pinblock" id="etiqueta-resultado-pinblock">Resultado PinBlock</label>
+                <label for="resultado-pinblock" id="etiqueta-resultado-pinblock" class="etiqueta-resultado">Resultado PinBlock</label>
                 <textarea id="resultado-pinblock" rows="7" cols="50" readonly> </textarea>
             </div>
         </section>   
         <section class = "contenedor-principal">
+            <div class="contenedor-subtitulo">
             <h2 class="subtitulo">Calculo XOR</h2>
+            </div>
             <div >
-                <label for="dato1" id="etiqueta-dato1">Dato 1</label>
+                <label for="dato1" id="etiqueta-dato1">📄Dato 1</label>
                 <input type="text" id="dato1" size="32" placeholder="0000FFFFAAAADDDD">
             </div>
             <div >
-                <label for="dato2" id="etiqueta-dato2">Dato 2</label>
+                <label for="dato2" id="etiqueta-dato2">📄Dato 2</label>
                 <input type="text" id="dato2" size="32" placeholder="0000FFFFAAAADDDD">
             </div>
             <div>
                 <button id="boton-xor">Calcular XOR</button>
             </div>
             <div class="contenedor-resultado">   
-                <label for="resultado-xor" id="etiqueta-resultado-xor">Resultado XOR</label>
+                <label for="resultado-xor" id="etiqueta-resultado-xor" class="etiqueta-resultado">Resultado XOR</label>
                 <textarea  id="resultado-xor" rows="3" cols="60" readonly> </textarea>
             </div>
         </section>       
