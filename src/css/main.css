@@ -1,9 +1,17 @@
 /*SMACSS (Scalable and Modular Architecture for CSS).*/
-@import url('base/_reset.css');
-@import url('base/_typography.css');
-@import url('layout/_header.css');
-@import url('layout/_footer.css');
-@import url('components/_button.css');
-@import url('components/_card.css');
-@import url('components/_form.css');
-@import url('utilities/_helpers.css');
+@import 'base/_reset.css';
+@import 'base/_typography.css';
+
+/* 2. Components (elementos reutilizables) */
+@import 'componets/_button.css';
+@import 'componets/_input.css';
+@import 'componets/_label.css';
+@import 'componets/_textarea.css';
+
+/* 3. Layout (estructura de la página) */
+@import 'layout/_footer.css';
+@import 'layout/_grid.css';
+@import 'layout/_header.css';
+
+/* 4. Utilities (clases de ayuda) */
+@import 'utilities/_helpers.css';
