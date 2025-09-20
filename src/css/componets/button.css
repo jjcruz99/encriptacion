@@ -5,10 +5,11 @@ button {
   color: #F4F4F4;
   text-decoration: none;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 0.8rem;
   font-size: 1.3rem; 
 }
 
 button:hover {
   background-color: #F29F05;
+  border: 1px solid #594234;
 }
