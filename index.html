@@ -25,7 +25,7 @@
                 <input type="text" id="dato-encriptar" size="40" placeholder="0000FFFF0000FFFF">     
             </div>
             <div>
-                <label for="clave-encriptar" id="etiqueta-clave-encriptar">🔑KEY</label>
+                <label for="clave-encriptar" id="etiqueta-clave-encriptar">🔐KEY</label>
                 <input type="text" id="clave-encriptar" size="40" placeholder="0000FFFF0000FFFFAAAAFFFF0000FFFF">
             </div>
             <div>
@@ -33,7 +33,7 @@
             </div>
             <div class="contenedor-resultado">
                 <label for="resultado-encriptacion" id="etiqueta-resultado-encriptacion" class="etiqueta-resultado">Resultado EAS</label>
-                <textarea  id="resultado-encriptacion" rows="5" cols="60" readonly></textarea>
+                <textarea  id="resultado-encriptacion" rows="5" cols="55" readonly></textarea>
             </div>
         </section>
 
@@ -46,7 +46,7 @@
                 <input type="text" id="numero-tarjeta" size="16" placeholder="0000 0000 0000 0000">
             </div>
             <div>
-                <label for="numero-pin" id="etiqueta-numero-pin">🔑PIN</label>
+                <label for="numero-pin" id="etiqueta-numero-pin">🔑CLAVE</label>
                 <input type="text" id="numero-pin" size="16" maxlength="4" placeholder="0000">
             </div>
             <div>
@@ -62,7 +62,7 @@
             </div>
             <div class="contenedor-resultado">
                 <label for="resultado-pinblock" id="etiqueta-resultado-pinblock" class="etiqueta-resultado">Resultado PinBlock</label>
-                <textarea id="resultado-pinblock" rows="7" cols="50" readonly> </textarea>
+                <textarea id="resultado-pinblock" rows="7" cols="55" readonly> </textarea>
             </div>
         </section>   
         <section class = "contenedor-principal">
@@ -71,18 +71,18 @@
             </div>
             <div >
                 <label for="dato1" id="etiqueta-dato1">📄Dato 1</label>
-                <input type="text" id="dato1" size="32" placeholder="0000FFFFAAAADDDD">
+                <input type="text" id="dato1" size="40" placeholder="0000FFFFAAAADDDD">
             </div>
             <div >
                 <label for="dato2" id="etiqueta-dato2">📄Dato 2</label>
-                <input type="text" id="dato2" size="32" placeholder="0000FFFFAAAADDDD">
+                <input type="text" id="dato2" size="40" placeholder="0000FFFFAAAADDDD">
             </div>
             <div>
                 <button id="boton-xor">Calcular XOR</button>
             </div>
             <div class="contenedor-resultado">   
                 <label for="resultado-xor" id="etiqueta-resultado-xor" class="etiqueta-resultado">Resultado XOR</label>
-                <textarea  id="resultado-xor" rows="3" cols="60" readonly> </textarea>
+                <textarea  id="resultado-xor" rows="3" cols="55" readonly> </textarea>
             </div>
         </section>       
     </main>

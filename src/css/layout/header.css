@@ -6,5 +6,6 @@ header {
   text-align: center;
   justify-content: center;
   gap: 3rem;
+  border-top: 0.2rem solid #d0d0d0;
 }
 

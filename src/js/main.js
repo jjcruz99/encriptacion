@@ -7,9 +7,16 @@ import { hexToBase64 } from './utils/base64.js';
 
 
 function encriptarDato() {
+    try{
     //obtener datos de los inputs
     const dato = document.getElementById('dato-encriptar').value;
-    const clave = document.getElementById('clave-encriptar').value; 
+    const clave = document.getElementById('clave-encriptar').value;
+    
+    //validar que los datos no esten vacios
+    if (dato === '' || clave === '') {
+        alert('Por favor, diligencie los dos campos.');
+        return;
+    }
     
     //realizar conversión a HEX
     const resultadoHex = textoAHex(dato);
@@ -34,18 +41,38 @@ function encriptarDato() {
 
     if (datoBase64 === base64Esperado) {
         console.log('Resultado Base64 Correcto');
-    }   else { console.log('Base64 Incorrecto'); }       
+    }   else { console.log('Base64 Incorrecto'); }    
+    } 
+    catch (error) {
+        console.error('Error en la encriptación. Detalles: ', error);
+    }   
 }
 
 
 
 //Calculo de PinBlock
 function calcularPinblock() {
-    alert('En desarrollo...');
+    try {
+    
     const tarjeta = document.getElementById('numero-tarjeta').value;
-    const pin     = document.getElementById('clave-pinblock').value;
-    const iv      = document.getElementById('vector').value;   
+    const pin     = document.getElementById('numero-pin').value;
+    const key     = document.getElementById('clave-pinblock').value;
+    const iv      = document.getElementById('vector').value;
+    
+    //mostrar resultado temporal
+    document.getElementById('resultado-pinblock').value = `\n Capturando datos..
+                                                            PIN: ${tarjeta} 
+                                                            PAN: ${pin}
+                                                            PIN-ANSI: ${key} 
+                                                            PINBLOCK: ${iv}`;
+
+    alert('En desarrollo...');
+    } 
+    catch (error) {
+    console.error('Error en el cálculo del PINBLOCK. Detalles: ', error);
+    }
 }
+
 
 //Calculo de XOR
 
@@ -54,7 +81,7 @@ function calcularXOR() {
     const dato2 = document.getElementById('dato2').value;
     const resultado = xor(dato1, dato2);
     document.getElementById('resultado-xor').value = `\n ${resultado}`;
-}
+}  
 
 
 document.getElementById('boton-xor').addEventListener('click', calcularXOR);
