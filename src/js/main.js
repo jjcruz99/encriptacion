@@ -4,6 +4,7 @@ import { xor } from './utils/xor.js';
 import { textoAHex } from './utils/texto-hex.js';
 import {encryptAES_ECB_CustomZeroPadding} from './algorithms/aes.js';
 import { hexToBase64 } from './utils/base64.js';
+import { pinPan } from './utils/pin-pan.js';
 
 
 function encriptarDato() {
@@ -55,15 +56,29 @@ function calcularPinblock() {
     try {
     
     const tarjeta = document.getElementById('numero-tarjeta').value;
-    const pin     = document.getElementById('numero-pin').value;
+    const claveTarjeta     = document.getElementById('numero-pin').value;
     const key     = document.getElementById('clave-pinblock').value;
     const iv      = document.getElementById('vector').value;
     
+    let calcularPinpan=pinPan(tarjeta,claveTarjeta);
+    const pin= calcularPinpan.slice(0,16);
+    const pan= calcularPinpan.slice(16,32);
+    const pinAnsi = xor(pin,pan).toUpperCase();
+ 
+    //Prueba
+    if(pin === "046481FFFFFFFFFF" && pan === "0000467033549341"){
+        alert("Funciona pin y pan")
+    }
+    if(pinAnsi === "0464C78FCCAB6CBE"){
+        alert("PinAnsi Correcto")
+    }
+
+
     //mostrar resultado temporal
     document.getElementById('resultado-pinblock').value = `\n Capturando datos..
-                                                            PIN: ${tarjeta} 
-                                                            PAN: ${pin}
-                                                            PIN-ANSI: ${key} 
+                                                            PIN: ${pin} 
+                                                            PAN: ${pan}
+                                                            PIN-ANSI: ${pinAnsi} 
                                                             PINBLOCK: ${iv}`;
 
     alert('En desarrollo...');
@@ -72,6 +87,7 @@ function calcularPinblock() {
     console.error('Error en el cálculo del PINBLOCK. Detalles: ', error);
     }
 }
+
 
 
 //Calculo de XOR
