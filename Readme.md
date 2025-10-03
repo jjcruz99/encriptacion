@@ -10,14 +10,16 @@
 │   │   │   └── typography.css
 │   │   ├── componets/
 │   │   │   ├── button.css
+│   │   │   ├── img.css
 │   │   │   ├── input.css
-│   │   │   └── label.css
+│   │   │   ├── label.css
 │   │   │   └── textarea.css
 │   │   ├── layout/
 │   │   │   ├── footer.css
 │   │   │   ├── grid.css
 │   │   │   └── header.css
 │   │   ├── utilities/
+│   │   │   ├── animations.css
 │   │   │   └── helpers.css
 │   │   └── main.css
 │   ├── js/
@@ -31,7 +33,7 @@
 │   │   │   ├── base64.js
 │   │   │   ├── texto-hex.js
 │   │   │   └── xor.js
-│   │   │   └── pin-ansi.js
+│   │   │   └── pin-pan.js
 │   │   └── main.js
 │   └── pictures/
 ```
