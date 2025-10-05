@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/css/main.css">
     <link rel="icon" href="src/pictures/icon_candado.png" type="image/x-icon" >
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Encrip</title>
 </head>
 <body>
@@ -21,15 +22,17 @@
                 <h2 class="subtitulo">Encriptacion EAS</h2>
             </div>
             <div>
-                <label for="dato-encriptar" id="etiqueta-dato-encriptar">💳Dato</label>
-                <input type="text" id="dato-encriptar" size="40" placeholder="0000FFFF0000FFFF">     
+                <label for="dato-encriptar" id="etiqueta-dato-encriptar">💳 Dato</label>
+                <input type="text" id="dato-encriptar" size="40" placeholder="0000FFFF0000FFFF">
+                <span id="mensaje-linea-1" class="mensaje-error"> </span>     
             </div>
             <div>
-                <label for="clave-encriptar" id="etiqueta-clave-encriptar">🔐KEY</label>
+                <label for="clave-encriptar" id="etiqueta-clave-encriptar">🔐 KEY</label>
                 <input type="text" id="clave-encriptar" size="40" placeholder="0000FFFF0000FFFFAAAAFFFF0000FFFF">
+                <span id="mensaje-linea-2" class="mensaje-error"> </span>
             </div>
             <div>
-                <button id="boton-encriptar">Encriptar</button>
+                <button id="boton-encriptar">🛡️ Encriptar</button>
             </div>
             <div class="contenedor-resultado">
                 <label for="resultado-encriptacion" id="etiqueta-resultado-encriptacion" class="etiqueta-resultado">Resultado EAS</label>
@@ -42,27 +45,32 @@
             <h2 class="subtitulo">Encriptacion pinBlock</h2>
             </div>
             <div>
-                <label for="numero-tarjeta" id="etiqueta-numero-tarjeta">💳N° TC</label>
-                <input type="text" id="numero-tarjeta" size="40" placeholder="0000 0000 0000 0000">
+                <label for="numero-tarjeta" id="etiqueta-numero-tarjeta">💳 N° TC</label>
+                <input type="text" id="numero-tarjeta" size="40" maxlength="16" placeholder="0000 0000 0000 0000">
+                <span id="mensaje-linea-3" class="mensaje-error"> </span>
             </div>
             <div>
-                <label for="numero-pin" id="etiqueta-numero-pin">🔑CLAVE</label>
+                <label for="numero-pin" id="etiqueta-numero-pin">🔑 CLAVE</label>
                 <input type="text" id="numero-pin" size="40" maxlength="4" placeholder="0000">
+                <span id="mensaje-linea-4" class="mensaje-error"> </span>
             </div>
             <div>
-                <label for="clave-pinblock" id="etiqueta-clave-pinblock">🔐KEY-DES</label>
+                <label for="clave-pinblock" id="etiqueta-clave-pinblock">🔐 KEY-DES</label>
                 <input type="text" id="clave-pinblock" size="40" placeholder="0000FFFF0000FFFFAAAA">
+                <span id="mensaje-linea-5" class="mensaje-error"> </span>
             </div>
             <div>
-                <label for="clave-pinblock" id="etiqueta-clave-pin-EAS">🔐KEY-EAS</label>
+                <label for="clave-pinblock" id="etiqueta-clave-pin-EAS">🔐 KEY-EAS</label>
                 <input type="text" id="clave-pin-EAS" size="40" placeholder="0000FFFF0000FFFFAAAA">
+                <span id="mensaje-linea-6" class="mensaje-error"> </span>
             </div>
             <div>
-                <label for="vector" id="etiqueta-vector">🔏I VECTOR</label>
+                <label for="vector" id="etiqueta-vector">🔏 I VECTOR</label>
                 <input type="text" id="vector" size="40" placeholder="000000000000000" value="0000000000000000">
+                <span id="mensaje-linea-7" class="mensaje-error"> </span>
             </div>
             <div>
-                <button id="boton-pinblok">Calcular</button>
+                <button id="boton-pinblok">🛡️ Calcular</button>
             </div>
             <div class="contenedor-resultado">
                 <label for="resultado-pinblock" id="etiqueta-resultado-pinblock" class="etiqueta-resultado">Resultado PinBlock</label>
@@ -74,15 +82,17 @@
             <h2 class="subtitulo">Calculo XOR</h2>
             </div>
             <div >
-                <label for="dato1" id="etiqueta-dato1">📄Dato 1</label>
+                <label for="dato1" id="etiqueta-dato1">📜 Dato 1</label>
                 <input type="text" id="dato1" size="40" placeholder="0000FFFFAAAADDDD">
+                <span id="mensaje-linea-8" class="mensaje-error"> </span>
             </div>
             <div >
-                <label for="dato2" id="etiqueta-dato2">📄Dato 2</label>
+                <label for="dato2" id="etiqueta-dato2">📜 Dato 2</label>
                 <input type="text" id="dato2" size="40" placeholder="0000FFFFAAAADDDD">
+                <span id="mensaje-linea-9" class="mensaje-error"> </span>
             </div>
             <div>
-                <button id="boton-xor">Calcular XOR</button>
+                <button id="boton-xor">🛡️ Calcular XOR</button>
             </div>
             <div class="contenedor-resultado">   
                 <label for="resultado-xor" id="etiqueta-resultado-xor" class="etiqueta-resultado">Resultado XOR</label>
@@ -96,6 +106,6 @@
 
     <script src="src/js/libs/crypto-js.js"></script>
     <script src="src/js/main.js" type="module"></script>
-    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 </html>
