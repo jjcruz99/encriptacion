@@ -22,6 +22,9 @@ h2 {
     font-weight: 700;
 } 
 
+.mi-toast {
+  font-size: 1.1rem; 
+}
 
 #titulo-principal {
   text-align: center;
@@ -36,5 +39,5 @@ h2 {
 
 .mensaje-error{
   color: red;
-  font-size: 0.6em;
+  font-size: 0.7em;
 }
