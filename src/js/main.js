@@ -2,10 +2,10 @@
 
 import { xor } from './utils/xor.js';
 import { textoAHex } from './utils/texto-hex.js';
-import {encryptAES_ECB_CustomZeroPadding} from './algorithms/aes.js';
+import {encryptAES_ECB_CustomZeroPadding,encryptAES_CBC} from './algorithms/aes.js';
 import { hexToBase64 } from './utils/base64.js';
 import { pinPan } from './utils/pin-pan.js';
-
+import { generarPinblock } from './algorithms/3des.js';
 
 function encriptarDato() {
     try{
@@ -56,8 +56,9 @@ function calcularPinblock() {
     try {
     
     const tarjeta = document.getElementById('numero-tarjeta').value;
-    const claveTarjeta     = document.getElementById('numero-pin').value;
-    const key     = document.getElementById('clave-pinblock').value;
+    const claveTarjeta = document.getElementById('numero-pin').value;
+    const keyDes = document.getElementById('clave-pinblock').value;
+    const keyEas = document.getElementById('clave-pin-EAS').value;
     const iv      = document.getElementById('vector').value;
     
     let calcularPinpan=pinPan(tarjeta,claveTarjeta);
@@ -67,21 +68,34 @@ function calcularPinblock() {
  
     //Prueba
     if(pin === "046481FFFFFFFFFF" && pan === "0000467033549341"){
-        alert("Funciona pin y pan")
+        console.log("Funciona pin y pan");
     }
     if(pinAnsi === "0464C78FCCAB6CBE"){
-        alert("PinAnsi Correcto")
+        console.log("PinAnsi Correcto");
     }
 
+    //Calcular pinblock
+    const pinblock = generarPinblock(pinAnsi,keyDes,iv);
+
+    //conversion a HEX
+    const hexPinblock = textoAHex(pinblock);
+
+    //encriptar EAS
+    const encriptEasCbc = encryptAES_CBC(hexPinblock,keyEas,iv);
+
+    //Pinblock base64
+    const pinblok64 = hexToBase64(encriptEasCbc);
 
     //mostrar resultado temporal
-    document.getElementById('resultado-pinblock').value = `\n Capturando datos..
-                                                            PIN: ${pin} 
-                                                            PAN: ${pan}
-                                                            PIN-ANSI: ${pinAnsi} 
-                                                            PINBLOCK: ${iv}`;
+    document.getElementById('resultado-pinblock').value = `\nBase64: ${pinblok64}`
+    document.getElementById('resultado-pinblock').value += `\nPINBLOCK: ${pinblock}`;
+    document.getElementById('resultado-pinblock').value += `\nPinAnsi: ${pinAnsi}`;
 
-    alert('En desarrollo...');
+    // validacion para un dato de prueba
+    if (pinblok64 === "DPjqM6m6jOZZHIq9YQmYLQ=="){
+        alert("Pinblock Correcto");
+    }
+
     } 
     catch (error) {
     console.error('Error en el cálculo del PINBLOCK. Detalles: ', error);
