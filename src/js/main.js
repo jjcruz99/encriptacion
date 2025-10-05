@@ -5,7 +5,7 @@ import { textoAHex } from './utils/texto-hex.js';
 import {encryptAES_ECB_CustomZeroPadding} from './algorithms/aes.js';
 import { hexToBase64 } from './utils/base64.js';
 import { pinPan } from './utils/pin-pan.js';
-
+import { generarPinblock } from './algorithms/3des.js';
 
 function encriptarDato() {
     try{
@@ -57,7 +57,7 @@ function calcularPinblock() {
     
     const tarjeta = document.getElementById('numero-tarjeta').value;
     const claveTarjeta     = document.getElementById('numero-pin').value;
-    const key     = document.getElementById('clave-pinblock').value;
+    const keyDes     = document.getElementById('clave-pinblock').value;
     const iv      = document.getElementById('vector').value;
     
     let calcularPinpan=pinPan(tarjeta,claveTarjeta);
@@ -67,20 +67,23 @@ function calcularPinblock() {
  
     //Prueba
     if(pin === "046481FFFFFFFFFF" && pan === "0000467033549341"){
-        alert("Funciona pin y pan")
+        console.log("Funciona pin y pan");
     }
     if(pinAnsi === "0464C78FCCAB6CBE"){
-        alert("PinAnsi Correcto")
+        console.log("PinAnsi Correcto");
     }
+
+    //Calcular pinblock
+    const pinblock = generarPinblock(pinAnsi,keyDes,iv);
+
+    //conversion a HEX
+    const hexPinblock = textoAHex(pinblock)
 
 
     //mostrar resultado temporal
-    document.getElementById('resultado-pinblock').value = `\n Capturando datos..
-                                                            PIN: ${pin} 
-                                                            PAN: ${pan}
-                                                            PIN-ANSI: ${pinAnsi} 
-                                                            PINBLOCK: ${iv}`;
-
+    document.getElementById('resultado-pinblock').value = `PINBLOCK: ${pinblock}`;
+    document.getElementById('resultado-pinblock').value += `\nPinAnsi: ${pinAnsi}`;
+    document.getElementById('resultado-pinblock').value += `\n HEXpinBlock: ${hexPinblock}`;
     alert('En desarrollo...');
     } 
     catch (error) {
