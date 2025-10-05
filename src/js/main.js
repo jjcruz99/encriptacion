@@ -46,7 +46,11 @@ function encriptarDato() {
     //encriptar base64
     const datoBase64 = hexToBase64(datoEncriptado);
     document.getElementById('resultado-encriptacion').value += `\nBase64: ${datoBase64}`; 
-    mostrarToast("Encriptación ¡Exitosa 🤗!")  
+
+    if(datoBase64){
+            mostrarToast("Encriptación ¡Exitosa 🤗!");
+    }
+ 
     } 
     catch (error) {
         console.error('Error en la encriptación. Detalles: ', error);
@@ -148,7 +152,10 @@ function calcularPinblock() {
     document.getElementById('resultado-pinblock').value += `\nPINBLOCK: ${pinblock}`;
     document.getElementById('resultado-pinblock').value += `\nPinAnsi: ${pinAnsi}`;
 
-    mostrarToastExitoso("Generacion de Pinblock ¡Exitosa 🤗!") 
+    if(pinblok64){
+        mostrarToastExitoso("Generacion de Pinblock ¡Exitosa 🤗!");
+    }
+    
 
     // validacion para un dato de prueba
     if (pinblok64 === "DPjqM6m6jOZZHIq9YQmYLQ=="){
@@ -198,7 +205,11 @@ function calcularXOR() {
     //Realizar operacion xor
     const resultado = xor(dato1, dato2);
     document.getElementById('resultado-xor').value = `\n ${resultado}`;
-    mostrarToast("Xor ¡Exitosa 🤗!")
+
+    if(resultado){
+     mostrarToast("Xor ¡Exitosa 🤗!");
+    }
+
     }
     catch(error){
         mostrarToast("Error al calcular XOR. "+error,"error")

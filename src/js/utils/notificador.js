@@ -12,6 +12,7 @@ export function mostrarToast(mensaje, tipo = 'info') {
     gravity: "top", // `top` or `bottom`
     position: tipo === 'error' ? "center" : "right", // `left`, `center` or `right`
     backgroundColor: tipo === 'error' ? "linear-gradient(to right, #FF416C, #FF4B2B)" : "#44A1F2", // Color de fondo
+    className : "mi-toast"
   }).showToast();
 }
 
