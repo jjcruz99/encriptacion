@@ -22,6 +22,7 @@ h2 {
     font-weight: 700;
 } 
 
+
 #titulo-principal {
   text-align: center;
   color: #fcfafa;
@@ -33,4 +34,7 @@ h2 {
   margin-bottom: 0.3rem;
 }
 
-
+.mensaje-error{
+  color: red;
+  font-size: 0.6em;
+}

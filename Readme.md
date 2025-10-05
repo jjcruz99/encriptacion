@@ -31,13 +31,16 @@
 │   │   │   └── crypto-js.js
 │   │   ├── utils/
 │   │   │   ├── base64.js
+│   │   │   ├── notificador.js
 │   │   │   ├── texto-hex.js
-│   │   │   └── xor.js
+│   │   │   ├── xor.js
 │   │   │   └── pin-pan.js
 │   │   └── main.js
 │   └── pictures/
 ```
 
 # Librerias y documentacion
+```
 https://github.com/brix/crypto-js/blob/develop/src/aes.js
 https://www.npmjs.com/package/crypto-js?activeTab=code
+```
