@@ -18,86 +18,124 @@
     </header>
     <main>
         <section class = "contenedor-principal">
+
             <div class="contenedor-subtitulo">
                 <h2 class="subtitulo">Encriptacion EAS</h2>
             </div>
-            <div>
-                <label for="dato-encriptar" id="etiqueta-dato-encriptar">💳 Dato</label>
-                <input type="text" id="dato-encriptar" size="40" placeholder="0000FFFF0000FFFF">
-                <span id="mensaje-linea-1" class="mensaje-error"> </span>     
+
+            <div  class="contenedor-formulario" id="contendor-formulario-eas">
+
+                <div  class="contenedor-formulario-labels" id="contenedor-eas-labels">
+                    <label for="dato-encriptar" id="etiqueta-dato-encriptar">💳 Dato</label>
+                    <label for="clave-encriptar" id="etiqueta-clave-encriptar">🔐 KEY</label>
+                </div>   
+
+                <div class="contenedor-formulario-inputs" id="contenedor-eas-inputs">
+                    <input type="text" id="dato-encriptar" size="40" placeholder="0000FFFF0000FFFF">
+                    <input type="text" id="clave-encriptar" size="40" placeholder="0000FFFF0000FFFFAAAAFFFF0000FFFF">
+                </div> 
+
+                <div class="contenedor-formulario-mensajes-error" id="contenedor-eas-mensajes-error">
+                    <span id="mensaje-linea-1" class="mensaje-error"> </span> 
+                    <span id="mensaje-linea-2" class="mensaje-error"> </span>
+                </div>
+
             </div>
-            <div>
-                <label for="clave-encriptar" id="etiqueta-clave-encriptar">🔐 KEY</label>
-                <input type="text" id="clave-encriptar" size="40" placeholder="0000FFFF0000FFFFAAAAFFFF0000FFFF">
-                <span id="mensaje-linea-2" class="mensaje-error"> </span>
-            </div>
-            <div>
+
+            <div class="contenedor-boton">
                 <button id="boton-encriptar">🛡️ Encriptar</button>
             </div>
+
             <div class="contenedor-resultado">
                 <label for="resultado-encriptacion" id="etiqueta-resultado-encriptacion" class="etiqueta-resultado">Resultado EAS</label>
                 <textarea  id="resultado-encriptacion" rows="5" cols="55" readonly></textarea>
             </div>
+
         </section>
 
         <section class = "contenedor-principal">
+
             <div class="contenedor-subtitulo">
             <h2 class="subtitulo">Encriptacion pinBlock</h2>
             </div>
-            <div>
-                <label for="numero-tarjeta" id="etiqueta-numero-tarjeta">💳 N° TC</label>
-                <input type="text" id="numero-tarjeta" size="40" maxlength="16" placeholder="0000 0000 0000 0000">
-                <span id="mensaje-linea-3" class="mensaje-error"> </span>
+
+            <div  class="contenedor-formulario" id="contendor-formulario-pinblock">
+
+                <div  class="contenedor-formulario-labels" id="contenedor-pinblock-labels">
+                    <label for="numero-tarjeta" id="etiqueta-numero-tarjeta">💳 N° TC</label>
+                    <label for="numero-pin" id="etiqueta-numero-pin">🔑 CLAVE</label>
+                    <label for="clave-pinblock" id="etiqueta-clave-pinblock">🔐 KEY-DES</label>
+                    <label for="clave-pinblock" id="etiqueta-clave-pin-EAS">🔐 KEY-EAS</label>
+                    <label for="vector" id="etiqueta-vector">🔏 I VECTOR</label>
+                </div>   
+
+                <div class="contenedor-formulario-inputs" id="contenedor-pinblock-inputs">
+                    <input type="text" id="numero-tarjeta" size="40" maxlength="16" placeholder="0000 0000 0000 0000">
+                    
+                    <input type="text" id="numero-pin" size="40" maxlength="4" placeholder="0000">
+                                      
+                    <input type="text" id="clave-pinblock" size="40" placeholder="0000FFFF0000FFFFAAAA">
+                    
+                    <input type="text" id="clave-pin-EAS" size="40" placeholder="0000FFFF0000FFFFAAAA">
+                    
+                    <input type="text" id="vector" size="40" placeholder="000000000000000" value="0000000000000000">
+                    
+                </div> 
+
+                <div class="contenedor-formulario-mensajes-error" id="contenedor-pinblock-mensajes-error">
+                    <span id="mensaje-linea-3" class="mensaje-error"> </span>
+                    <span id="mensaje-linea-4" class="mensaje-error"> </span> 
+                    <span id="mensaje-linea-5" class="mensaje-error"> </span>
+                    <span id="mensaje-linea-6" class="mensaje-error"> </span>
+                    <span id="mensaje-linea-7" class="mensaje-error"> </span>
+                </div>
+
             </div>
-            <div>
-                <label for="numero-pin" id="etiqueta-numero-pin">🔑 CLAVE</label>
-                <input type="text" id="numero-pin" size="40" maxlength="4" placeholder="0000">
-                <span id="mensaje-linea-4" class="mensaje-error"> </span>
-            </div>
-            <div>
-                <label for="clave-pinblock" id="etiqueta-clave-pinblock">🔐 KEY-DES</label>
-                <input type="text" id="clave-pinblock" size="40" placeholder="0000FFFF0000FFFFAAAA">
-                <span id="mensaje-linea-5" class="mensaje-error"> </span>
-            </div>
-            <div>
-                <label for="clave-pinblock" id="etiqueta-clave-pin-EAS">🔐 KEY-EAS</label>
-                <input type="text" id="clave-pin-EAS" size="40" placeholder="0000FFFF0000FFFFAAAA">
-                <span id="mensaje-linea-6" class="mensaje-error"> </span>
-            </div>
-            <div>
-                <label for="vector" id="etiqueta-vector">🔏 I VECTOR</label>
-                <input type="text" id="vector" size="40" placeholder="000000000000000" value="0000000000000000">
-                <span id="mensaje-linea-7" class="mensaje-error"> </span>
-            </div>
-            <div>
+
+            <div class="contenedor-boton">
                 <button id="boton-pinblok">🛡️ Calcular</button>
             </div>
+
             <div class="contenedor-resultado">
                 <label for="resultado-pinblock" id="etiqueta-resultado-pinblock" class="etiqueta-resultado">Resultado PinBlock</label>
                 <textarea id="resultado-pinblock" rows="5" cols="55" readonly> </textarea>
             </div>
+
         </section>   
         <section class = "contenedor-principal">
+
             <div class="contenedor-subtitulo">
             <h2 class="subtitulo">Calculo XOR</h2>
             </div>
-            <div >
-                <label for="dato1" id="etiqueta-dato1">📜 Dato 1</label>
-                <input type="text" id="dato1" size="40" placeholder="0000FFFFAAAADDDD">
-                <span id="mensaje-linea-8" class="mensaje-error"> </span>
+
+            <div  class="contenedor-formulario" id="contendor-formulario-xor">
+
+                <div  class="contenedor-formulario-labels" id="contenedor-xor-labels">
+                    <label for="dato1" id="etiqueta-dato1">📜 Dato 1</label>
+                    <label for="dato2" id="etiqueta-dato2">📜 Dato 2</label>
+                </div>   
+
+                <div class="contenedor-formulario-inputs" id="contenedor-xor-inputs">
+                    <input type="text" id="dato1" size="40" placeholder="0000FFFFAAAADDDD">
+                    <input type="text" id="dato2" size="40" placeholder="0000FFFFAAAADDDD">
+                </div> 
+
+                <div class="contenedor-formulario-mensajes-error" id="contenedor-xor-mensajes-error">
+                    <span id="mensaje-linea-8" class="mensaje-error"> </span>
+                    <span id="mensaje-linea-9" class="mensaje-error"> </span>
+                </div>
+
             </div>
-            <div >
-                <label for="dato2" id="etiqueta-dato2">📜 Dato 2</label>
-                <input type="text" id="dato2" size="40" placeholder="0000FFFFAAAADDDD">
-                <span id="mensaje-linea-9" class="mensaje-error"> </span>
-            </div>
-            <div>
+
+            <div class="contenedor-boton">
                 <button id="boton-xor">🛡️ Calcular XOR</button>
             </div>
+
             <div class="contenedor-resultado">   
                 <label for="resultado-xor" id="etiqueta-resultado-xor" class="etiqueta-resultado">Resultado XOR</label>
                 <textarea  id="resultado-xor" rows="3" cols="55" readonly> </textarea>
             </div>
+
         </section>       
     </main>
     <footer>

@@ -11,8 +11,8 @@ main{
   flex-direction: column;
   margin: 2.5rem;
   gap: 1rem;
-  padding: 0.3rem;
-  /* border: 2px solid #0f0cb8; */
+  padding: 2rem;
+  border: 2px solid #0f0cb8; 
 }
 .contenedor-subtitulo {
   display: flex;
@@ -20,11 +20,52 @@ main{
   align-items: center;
 }
 
+.contenedor-formulario{
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  padding: 0.5rem;
+  border: 1px solid #b80c0c;
+}
+
+.contenedor-formulario-labels{
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: left;
+  border: 1px solid #200ae6;
+}
+
+.contenedor-formulario-inputs{
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: flex-end;
+  border: 1px solid #20b80c;
+}
+
+.contenedor-formulario-mensajes-error{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: left;
+  padding-top: 1.5rem;
+  border: 1px solid #e20eb4;
+}
+
+.contenedor-boton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border:1px solid #89d80a;
+}
+
 .contenedor-resultado {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   align-items: center;
-  padding: 0.2rem;
-  /* border: 1px solid #b80c0c; */
+  padding: 0.8rem;
+  border: 1px solid #df7906; 
 }

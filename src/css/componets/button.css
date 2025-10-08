@@ -1,9 +1,8 @@
 button {
-  padding: 0.75rem 1.5rem;
+  padding: 1.2rem 2.2rem;
   border: 1px solid #007bff;
   background-color: #44A1F2;
   color: #F4F4F4;
-  text-decoration: none;
   cursor: pointer;
   border-radius: 0.8rem;
   font-size: 1.3rem; 
