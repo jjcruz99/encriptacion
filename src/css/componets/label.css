@@ -2,4 +2,14 @@ label{
   font-weight: bold;
   margin-right: 0.5rem;
   font-size: 1.3rem; 
+  width: 35%;
+  text-align: left;
+}
+
+.etiqueta-formulario-eas{
+  width: 23%;
+}
+
+.etiqueta-formulario-xor{
+  width: 27%;
 }

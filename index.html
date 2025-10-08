@@ -26,8 +26,8 @@
             <div  class="contenedor-formulario" id="contendor-formulario-eas">
 
                 <div  class="contenedor-formulario-labels" id="contenedor-eas-labels">
-                    <label for="dato-encriptar" id="etiqueta-dato-encriptar">💳 Dato</label>
-                    <label for="clave-encriptar" id="etiqueta-clave-encriptar">🔐 KEY</label>
+                    <label for="dato-encriptar" id="etiqueta-dato-encriptar" class="etiqueta-formulario-eas">💳 Dato</label>
+                    <label for="clave-encriptar" id="etiqueta-clave-encriptar" class="etiqueta-formulario-eas">🔐 KEY</label>
                 </div>   
 
                 <div class="contenedor-formulario-inputs" id="contenedor-eas-inputs">
@@ -36,8 +36,8 @@
                 </div> 
 
                 <div class="contenedor-formulario-mensajes-error" id="contenedor-eas-mensajes-error">
-                    <span id="mensaje-linea-1" class="mensaje-error"> </span> 
-                    <span id="mensaje-linea-2" class="mensaje-error"> </span>
+                    <span id="mensaje-linea-1" class="mensaje-error" ></span> 
+                    <span id="mensaje-linea-2" class="mensaje-error" ></span>
                 </div>
 
             </div>
@@ -47,7 +47,7 @@
             </div>
 
             <div class="contenedor-resultado">
-                <label for="resultado-encriptacion" id="etiqueta-resultado-encriptacion" class="etiqueta-resultado">Resultado EAS</label>
+                <h3 for="resultado-encriptacion" id="titulo-resultado-encriptacion" class="titulo-resultado">Resultado EAS</h3>
                 <textarea  id="resultado-encriptacion" rows="5" cols="55" readonly></textarea>
             </div>
 
@@ -70,14 +70,10 @@
                 </div>   
 
                 <div class="contenedor-formulario-inputs" id="contenedor-pinblock-inputs">
-                    <input type="text" id="numero-tarjeta" size="40" maxlength="16" placeholder="0000 0000 0000 0000">
-                    
-                    <input type="text" id="numero-pin" size="40" maxlength="4" placeholder="0000">
-                                      
-                    <input type="text" id="clave-pinblock" size="40" placeholder="0000FFFF0000FFFFAAAA">
-                    
-                    <input type="text" id="clave-pin-EAS" size="40" placeholder="0000FFFF0000FFFFAAAA">
-                    
+                    <input type="text" id="numero-tarjeta" size="40" maxlength="16" placeholder="0000 0000 0000 0000">             
+                    <input type="text" id="numero-pin" size="40" maxlength="4" placeholder="0000">                     
+                    <input type="text" id="clave-pinblock" size="40" placeholder="0000FFFF0000FFFFAAAA">         
+                    <input type="text" id="clave-pin-EAS" size="40" placeholder="0000FFFF0000FFFFAAAA">              
                     <input type="text" id="vector" size="40" placeholder="000000000000000" value="0000000000000000">
                     
                 </div> 
@@ -93,11 +89,11 @@
             </div>
 
             <div class="contenedor-boton">
-                <button id="boton-pinblok">🛡️ Calcular</button>
+                <button id="boton-pinblok">🛡️ Encriptar</button>
             </div>
 
             <div class="contenedor-resultado">
-                <label for="resultado-pinblock" id="etiqueta-resultado-pinblock" class="etiqueta-resultado">Resultado PinBlock</label>
+                <h3 for="resultado-pinblock" id="titulo-resultado-pinblock" class="titulo-resultado">Resultado PinBlock</h3>
                 <textarea id="resultado-pinblock" rows="5" cols="55" readonly> </textarea>
             </div>
 
@@ -111,8 +107,8 @@
             <div  class="contenedor-formulario" id="contendor-formulario-xor">
 
                 <div  class="contenedor-formulario-labels" id="contenedor-xor-labels">
-                    <label for="dato1" id="etiqueta-dato1">📜 Dato 1</label>
-                    <label for="dato2" id="etiqueta-dato2">📜 Dato 2</label>
+                    <label for="dato1" id="etiqueta-dato1" class="etiqueta-formulario-xor">📜 Dato 1</label>
+                    <label for="dato2" id="etiqueta-dato2" class="etiqueta-formulario-xor">📜 Dato 2</label>
                 </div>   
 
                 <div class="contenedor-formulario-inputs" id="contenedor-xor-inputs">
@@ -132,7 +128,7 @@
             </div>
 
             <div class="contenedor-resultado">   
-                <label for="resultado-xor" id="etiqueta-resultado-xor" class="etiqueta-resultado">Resultado XOR</label>
+                <h3 for="resultado-xor" id="titulo-resultado-xor" class="titulo-resultado">Resultado XOR</h3>
                 <textarea  id="resultado-xor" rows="3" cols="55" readonly> </textarea>
             </div>
 

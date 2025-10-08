@@ -4,7 +4,7 @@
 ├── index.html
 ├── Readme.md
 ├── src/
-│   ├── css/
+│   ├── css/ ---SMACSS
 │   │   ├── base/
 │   │   │   ├── reset.css
 │   │   │   └── typography.css

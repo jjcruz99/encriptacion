@@ -9,7 +9,7 @@ main{
 .contenedor-principal { 
   display: flex;
   flex-direction: column;
-  margin: 2.5rem;
+  margin-top:2rem;
   gap: 1rem;
   padding: 2rem;
   border: 2px solid #0f0cb8; 
@@ -21,25 +21,26 @@ main{
 }
 
 .contenedor-formulario{
-  display: flex;
-  gap: 1rem;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  gap: 0.5rem;
   padding: 0.5rem;
+  margin-top: 2rem;
   border: 1px solid #b80c0c;
 }
 
 .contenedor-formulario-labels{
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-  align-items: left;
+  gap: 2rem;
+  align-items: flex-end;
   border: 1px solid #200ae6;
 }
 
 .contenedor-formulario-inputs{
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 2rem;
   align-items: flex-end;
   border: 1px solid #20b80c;
 }
@@ -47,13 +48,21 @@ main{
 .contenedor-formulario-mensajes-error{
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
   align-items: left;
-  padding-top: 1.5rem;
-  border: 1px solid #e20eb4;
+  border: 1px solid #e29f0e;
+}
+
+.mensaje-error {
+    min-height: 2.2rem; 
+    line-height: 1.2; 
+    text-align: left;
+    padding-top: 1.2rem;
+    /* border: 1px solid #e9c70a; */
 }
 
 .contenedor-boton{
+  width:  50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,5 +76,6 @@ main{
   gap: 0.5rem;
   align-items: center;
   padding: 0.8rem;
-  border: 1px solid #df7906; 
+  text-align: center;
+  /* border: 1px solid #df7906;  */
 }
