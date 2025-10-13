@@ -1,10 +1,18 @@
 input[type="text"] {
-  padding: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 0.6rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem; 
+  box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
 }
 
 input::placeholder{
  color: #cdc7c7;
+}
+
+input[type="text"]:focus{
+    border-color: #0df205; /* Color principal al enfocar */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2); /* Sombra ligera de enfoque */
+    outline: none;
 }

@@ -11,4 +11,10 @@ button {
 button:hover {
   background-color: #F29F05;
   border: 1px solid #594234;
+  transform: translateY(-2px); /* Efecto 3D sutil */
+}
+
+button:active {
+    background-color:#007bff;
+    transform: translateY(0);
 }

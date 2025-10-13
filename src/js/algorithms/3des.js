@@ -17,7 +17,7 @@ export function generarPinblock(pinAnsi, key, iv) {
 
     // Encriptar utilizando CryptoJS
     const encrypted = CryptoJS.TripleDES.encrypt(
-      pinAnsiHex, // Usar el pinAnsi convertido a hexadecimal
+      pinAnsiHex, 
       keyHex,
       {
         iv: ivHex,

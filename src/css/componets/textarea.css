@@ -4,5 +4,13 @@ textarea{
   border-radius: 0.8rem;
   font-size: 1.3rem; 
   line-height: 1.8;
-  background-color: #ffffff;
+  background-color: #eceff1;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+textarea:focus{
+  border-color: #007bff; /* Color principal al enfocar */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2); /* Sombra ligera de enfoque */
+  outline: none;
 }
