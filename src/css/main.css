@@ -13,6 +13,7 @@
 @import 'layout/footer.css';
 @import 'layout/grid.css';
 @import 'layout/header.css';
+@import 'layout/nav.css';
 
 /* 4. Utilities (clases de ayuda) */
 @import 'utilities/animations.css';
