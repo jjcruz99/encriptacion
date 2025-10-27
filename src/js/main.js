@@ -218,11 +218,46 @@ function calcularXOR() {
 }  
 
 
+function administradorFormularios(formulario){
+    
+    const contenedorEas = document.getElementById('contenedor-eas');
+    const contenedorPinblock = document.getElementById('contenedor-pinblock');
+    const contenedorXor = document.getElementById('contenedor-xor');
+  
+    if (!contenedorEas || !contenedorPinblock || !contenedorXor) {
+        console.warn('Algún contenedor no existe');
+        return;
+    }
+    
+    //contenedorEas.hidden = formulario !== 'eas';
+    if(formulario === "eas"){
+        alert("Solo EAS");
+        contenedorEas.hidden=false;
+        contenedorPinblock.hidden = true;
+        contenedorXor.hidden = true;
+    }
+    else if(formulario === "pinblock"){
+        alert("Solo pinblock");
+        contenedorEas.hidden=true;
+        contenedorPinblock.hidden = false;
+        contenedorXor.hidden = true;
+    }
+    else if(formulario === "xor"){
+        alert("Solo xor");
+        contenedorEas.hidden=true;
+        contenedorPinblock.hidden = true;
+        contenedorXor.hidden = false;
+    }
+}
+
 document.getElementById('boton-xor').addEventListener('click', calcularXOR);
 document.getElementById('boton-pinblok').addEventListener('click',calcularPinblock);
 document.getElementById('boton-encriptar').addEventListener('click', encriptarDato);
+document.getElementById('boton-nav-eas').addEventListener('click',() => administradorFormularios('eas'));
+document.getElementById('boton-nav-pinblock').addEventListener('click',() => administradorFormularios('pinblock'));
+document.getElementById('boton-nav-xor').addEventListener('click',() => administradorFormularios('xor'));
 
 
-
+administradorFormularios('eas');
 console.log("Main JS cargado correctamente.");
 
