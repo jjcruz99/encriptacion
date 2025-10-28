@@ -7,6 +7,11 @@ nav{
     background-image: radial-gradient(circle, #fafafa, #dee7e5, #d8e0e0, #fafafa, #fafafa);
 } 
 
+/* Asegura que cualquier elemento con el atributo hidden se oculte correctamente */
+[hidden] {
+    display: none !important; 
+}
+
 #contenedor-nav{
     display: flex;
     flex-direction: row;
@@ -32,7 +37,7 @@ nav{
    color: #0e0e0e;
 }
 
-#boton-nav-eas{
+.boton-nav-activo{
  background-color: #44A1F2;
  color: #0e0e0e;
 }

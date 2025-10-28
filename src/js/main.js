@@ -224,30 +224,44 @@ function administradorFormularios(formulario){
     const contenedorPinblock = document.getElementById('contenedor-pinblock');
     const contenedorXor = document.getElementById('contenedor-xor');
   
-    if (!contenedorEas || !contenedorPinblock || !contenedorXor) {
-        console.warn('Algún contenedor no existe');
+   // Lista de diccionarios para los contenedores
+    const contenedores = [
+        { id: 'eas', element: contenedorEas },
+        { id: 'pinblock', element: contenedorPinblock },
+        { id: 'xor', element: contenedorXor }
+    ]; 
+
+    // capturar todos los botones de navegación
+    const botonesNav = document.querySelectorAll('.boton-nav'); 
+
+    // validar botones y contenedores existentes
+    if (botonesNav.length === 0) {
+        console.error('No se encontraron botones con la clase .nav-button');
         return;
     }
+
+
+    if (contenedores.some(c => !c.element)) {
+        console.error('ERROR: Falta un elemento contenedor en el DOM.');
+        return;
+    }
+
+    // iterar contenedores
+    contenedores.forEach(contenedor => {
+        contenedor.element.hidden = (contenedor.id !== formulario);
+    });
     
-    //contenedorEas.hidden = formulario !== 'eas';
-    if(formulario === "eas"){
-        alert("Solo EAS");
-        contenedorEas.hidden=false;
-        contenedorPinblock.hidden = true;
-        contenedorXor.hidden = true;
-    }
-    else if(formulario === "pinblock"){
-        alert("Solo pinblock");
-        contenedorEas.hidden=true;
-        contenedorPinblock.hidden = false;
-        contenedorXor.hidden = true;
-    }
-    else if(formulario === "xor"){
-        alert("Solo xor");
-        contenedorEas.hidden=true;
-        contenedorPinblock.hidden = true;
-        contenedorXor.hidden = false;
-    }
+    // iterar botones de navegación
+    botonesNav.forEach(boton => {
+         
+        const botonId = boton.id.split('-').pop();
+       
+        if (botonId === formulario) {
+            boton.classList.add('boton-nav-activo');
+        } else {
+            boton.classList.remove('boton-nav-activo');
+        }
+    });
 }
 
 document.getElementById('boton-xor').addEventListener('click', calcularXOR);
