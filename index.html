@@ -34,21 +34,21 @@
 
             <div  class="contenedor-formulario" id="contendor-formulario-eas">
 
-                <div  class="contenedor-formulario-labels" id="contenedor-eas-labels">
-                    <label for="dato-encriptar" id="etiqueta-dato-encriptar" class="etiqueta-formulario-eas">💳 Dato</label>
-                    <label for="clave-encriptar" id="etiqueta-clave-encriptar" class="etiqueta-formulario-eas">🔐 KEY</label>
+                <div class="subcontenedor-formulario" id="subcontenedor-formulario-eas-dato">
+                    <div>
+                        <label for="dato-encriptar" id="etiqueta-dato-encriptar" class="etiqueta-formulario-eas">💳 Dato</label>
+                        <span id="mensaje-linea-1" class="mensaje-error" ></span>
+                    </div>
+                    <input type="text" id="dato-encriptar" size="40" placeholder="Ingrese el dato a encriptar (ejm:4444222288886666)">
                 </div>   
 
-                <div class="contenedor-formulario-inputs" id="contenedor-eas-inputs">
-                    <input type="text" id="dato-encriptar" size="40" placeholder="0000FFFF0000FFFF">
-                    <input type="text" id="clave-encriptar" size="40" placeholder="0000FFFF0000FFFFAAAAFFFF0000FFFF">
+                <div class="subcontenedor-formulario" id="subcontenedor-formulario-eas-key">
+                    <div>
+                        <label for="clave-encriptar" id="etiqueta-clave-encriptar" class="etiqueta-formulario-eas">🔐 KEY</label> 
+                        <span id="mensaje-linea-2" class="mensaje-error" ></span> 
+                    </div>
+                    <input type="text" id="clave-encriptar" size="40" placeholder="Ingrese la llave (ejm:0000FFFF0000FFFFAAAAFFFF0000DDDD)">
                 </div> 
-
-                <div class="contenedor-formulario-mensajes-error" id="contenedor-eas-mensajes-error">
-                    <span id="mensaje-linea-1" class="mensaje-error" ></span> 
-                    <span id="mensaje-linea-2" class="mensaje-error" ></span>
-                </div>
-
             </div>
 
             <div class="contenedor-boton">
@@ -66,29 +66,51 @@
 
             <div  class="contenedor-formulario" id="contendor-formulario-pinblock">
 
-                <div  class="contenedor-formulario-labels" id="contenedor-pinblock-labels">
-                    <label for="numero-tarjeta" id="etiqueta-numero-tarjeta">💳 N° TC</label>
-                    <label for="numero-pin" id="etiqueta-numero-pin">🔑 CLAVE</label>
-                    <label for="clave-pinblock" id="etiqueta-clave-pinblock">🔐 KEY-DES</label>
-                    <label for="clave-pinblock" id="etiqueta-clave-pin-EAS">🔐 KEY-EAS</label>
-                    <label for="vector" id="etiqueta-vector">🔏 I VECTOR</label>
+                <div class="subcontenedor-formulario" id="subcontenedor-formulario-pinblock-tc">
+                    <div>
+                        <label for="numero-tarjeta" id="etiqueta-numero-tarjeta">💳 N° TC</label>
+                        <span id="mensaje-linea-3" class="mensaje-error"> </span>
+                    </div>
+                    
+                    <input type="text" id="numero-tarjeta" size="40" maxlength="16" placeholder="0000 0000 0000 0000">  
+                    
                 </div>   
 
-                <div class="contenedor-formulario-inputs" id="contenedor-pinblock-inputs">
-                    <input type="text" id="numero-tarjeta" size="40" maxlength="16" placeholder="0000 0000 0000 0000">             
+                <div class="subcontenedor-formulario" id="subcontenedor-formulario-pinblock-clave">
+                    <div>
+                        <label for="numero-pin" id="etiqueta-numero-pin">🔑 CLAVE</label> 
+                        <span id="mensaje-linea-4" class="mensaje-error"> </span>
+                    </div>
+                             
                     <input type="text" id="numero-pin" size="40" maxlength="4" placeholder="0000">                     
-                    <input type="text" id="clave-pinblock" size="40" placeholder="0000FFFF0000FFFFAAAA">         
-                    <input type="text" id="clave-pin-EAS" size="40" placeholder="0000FFFF0000FFFFAAAA">              
-                    <input type="text" id="vector" size="40" placeholder="000000000000000" value="0000000000000000">
-                    
+                  
                 </div> 
 
-                <div class="contenedor-formulario-mensajes-error" id="contenedor-pinblock-mensajes-error">
-                    <span id="mensaje-linea-3" class="mensaje-error"> </span>
-                    <span id="mensaje-linea-4" class="mensaje-error"> </span> 
-                    <span id="mensaje-linea-5" class="mensaje-error"> </span>
-                    <span id="mensaje-linea-6" class="mensaje-error"> </span>
-                    <span id="mensaje-linea-7" class="mensaje-error"> </span>
+                <div class="subcontenedor-formulario" id="subcontenedor-formulario-pinblock-keydes">
+                    <div>
+                        <label for="clave-pinblock" id="etiqueta-clave-pinblock">🔐 KEY-DES</label>
+                        <span id="mensaje-linea-5" class="mensaje-error"> </span>
+                    </div>
+                    
+                    <input type="text" id="clave-pinblock" size="40" placeholder="0000FFFF0000FFFFAAAA">
+                </div>
+
+                <div class="subcontenedor-formulario" id="subcontenedor-formulario-pinblock-keyeas">
+                    <div>
+                        <label for="clave-pinblock" id="etiqueta-clave-pin-EAS">🔐 KEY-EAS</label>
+                        <span id="mensaje-linea-6" class="mensaje-error"> </span>
+                    </div>
+                    
+                    <input type="text" id="clave-pin-EAS" size="40" placeholder="0000FFFF0000FFFFAAAA"> 
+                </div>
+
+                <div class="subcontenedor-formulario" id="subcontenedor-formulario-pinblock-vector">
+                    <div>
+                        <label for="vector" id="etiqueta-vector">🔏 I VECTOR</label>
+                        <span id="mensaje-linea-7" class="mensaje-error"> </span>
+                    </div>
+                    
+                    <input type="text" id="vector" size="40" placeholder="000000000000000" value="0000000000000000">
                 </div>
 
             </div>
@@ -107,20 +129,24 @@
 
             <div  class="contenedor-formulario" id="contendor-formulario-xor">
 
-                <div  class="contenedor-formulario-labels" id="contenedor-xor-labels">
-                    <label for="dato1" id="etiqueta-dato1" class="etiqueta-formulario-xor">📜 Dato 1</label>
-                    <label for="dato2" id="etiqueta-dato2" class="etiqueta-formulario-xor">📜 Dato 2</label>
+                <div >
+                    <div class="subcontenedor-formulario" id="subcontenedor-formulario-xor-dato1">
+                        <label for="dato1" id="etiqueta-dato1" class="etiqueta-formulario-xor">📜 Dato 1</label>
+                        <span id="mensaje-linea-8" class="mensaje-error"> </span>
+                    </div>
+
+                    <input type="text" id="dato1" size="40" placeholder="0000FFFFAAAADDDD">
+                    
                 </div>   
 
-                <div class="contenedor-formulario-inputs" id="contenedor-xor-inputs">
-                    <input type="text" id="dato1" size="40" placeholder="0000FFFFAAAADDDD">
+                <div >
+                    <div class="subcontenedor-formulario" id="subcontenedor-formulario-xor-dato2">
+                        <label for="dato2" id="etiqueta-dato2" class="etiqueta-formulario-xor">📜 Dato 2</label>
+                        <span id="mensaje-linea-9" class="mensaje-error"> </span>
+                    </div>
+
                     <input type="text" id="dato2" size="40" placeholder="0000FFFFAAAADDDD">
                 </div> 
-
-                <div class="contenedor-formulario-mensajes-error" id="contenedor-xor-mensajes-error">
-                    <span id="mensaje-linea-8" class="mensaje-error"> </span>
-                    <span id="mensaje-linea-9" class="mensaje-error"> </span>
-                </div>
 
             </div>
 

@@ -24,36 +24,18 @@ main{
 
 
 .contenedor-formulario{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; 
-  gap: 0.5rem;
+  display: flex;
+  flex-direction: column; 
+  width: 80%;
+  gap: 1rem;
   padding: 0.5rem;
   margin-top: 0.4rem;
-  /*? border: 1px solid #b80c0c; */ 
+  /** border: 1px solid #b80c0c;   */
 }
 
-.contenedor-formulario-labels{
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: flex-end;
-  /*! border: 1px solid #200ae6;  */
-}
-
-.contenedor-formulario-inputs{
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: flex-start;
-  /** border: 1px solid #20b80c;  */
-}
-
-.contenedor-formulario-mensajes-error{
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: left;
-  /** border: 1px solid #e29f0e; */
+.subcontenedor-formulario{
+  display: block;
+  gap: 0.5rem;
 }
 
 .mensaje-error {
