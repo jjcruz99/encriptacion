@@ -1,14 +1,18 @@
 header {
   display: flex;
   flex-direction: row;
-  background: linear-gradient(90deg,rgba(22, 217, 15, 1) 0%, rgba(60, 181, 20, 1) 50%, rgba(109, 191, 27, 1) 100%);
+  background: linear-gradient(90deg,rgb(16, 201, 10) 0%, rgba(60, 181, 20, 1) 50%, rgba(109, 191, 27, 1) 100%);
   padding: 1rem 0;
   justify-content: start;
-  gap: 3rem;
+  gap: 1rem;
   border-top: 0.2rem solid #d0d0d0;
 }
 
 #contenedor-logo{
-  margin-left: 8rem;
+  margin-left: 4rem;
 }
 
+#titulo-principal{
+  font-size: 2.3rem;
+  font-weight: 400;
+}
