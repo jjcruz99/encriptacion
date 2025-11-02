@@ -1,4 +1,4 @@
-
+/* Estilos para la estructura de la página */
 main{
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top:2rem;
+  margin-top:1rem;
   gap: 1rem;
   padding: 1rem;
   width: 80%;

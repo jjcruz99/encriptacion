@@ -15,7 +15,9 @@ nav{
 #contenedor-nav{
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: center;
+    width: 80%;
     background-color: #ffffff;
     gap: 0.5rem;
     padding: 0.5rem;
@@ -28,6 +30,7 @@ nav{
     background-color:  #ffffff;
     border: #ffffff;
     font-size: 1rem;
+    width: 33%;
 }
 
 .boton-nav:hover{

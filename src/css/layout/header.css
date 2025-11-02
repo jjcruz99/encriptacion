@@ -2,7 +2,7 @@ header {
   display: flex;
   flex-direction: row;
   background: linear-gradient(90deg,rgba(22, 217, 15, 1) 0%, rgba(60, 181, 20, 1) 50%, rgba(109, 191, 27, 1) 100%);
-  padding: 2rem 0;
+  padding: 1rem 0;
   justify-content: start;
   gap: 3rem;
   border-top: 0.2rem solid #d0d0d0;
