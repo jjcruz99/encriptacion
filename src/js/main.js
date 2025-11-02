@@ -37,7 +37,7 @@ function encriptarDato() {
     
     //realizar conversión a HEX
     const resultadoHex = textoAHex(dato);
-    document.getElementById('resultado-encriptacion').value = `\nHEX : ${resultadoHex}`;
+    document.getElementById('resultado-encriptacion').value = `HEX : ${resultadoHex}`;
 
     // encriptar dato EAS ECB
     const datoEncriptado = encryptAES_ECB_CustomZeroPadding(resultadoHex, clave); 
@@ -148,12 +148,12 @@ function calcularPinblock() {
     const pinblok64 = hexToBase64(encriptEasCbc);
 
     //mostrar resultado temporal
-    document.getElementById('resultado-pinblock').value = `\nBase64: ${pinblok64}`
+    document.getElementById('resultado-pinblock').value = `Base64: ${pinblok64}`
     document.getElementById('resultado-pinblock').value += `\nPINBLOCK: ${pinblock}`;
     document.getElementById('resultado-pinblock').value += `\nPinAnsi: ${pinAnsi}`;
 
     if(pinblok64){
-        mostrarToastExitoso("Generacion de Pinblock ¡Exitosa 🤗!");
+        mostrarToast("Generacion de Pinblock ¡Exitoso 🤗!");
     }
     
 
@@ -204,7 +204,7 @@ function calcularXOR() {
 
     //Realizar operacion xor
     const resultado = xor(dato1, dato2);
-    document.getElementById('resultado-xor').value = `\n ${resultado}`;
+    document.getElementById('resultado-xor').value = `${resultado}`;
 
     if(resultado){
      mostrarToast("Xor ¡Exitosa 🤗!");
