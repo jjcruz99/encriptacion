@@ -34,8 +34,21 @@ main{
 }
 
 .subcontenedor-formulario{
-  display: block;
+  display: flex;
+  flex-direction: column;
   gap: 0.5rem;
+}
+
+.subcontenedor-formulario div{
+  display: block;
+  gap: 0.1rem;
+}
+
+.icono-formulario{
+  width: 2rem;
+  height: 2rem;
+  vertical-align: middle;
+  margin-right: 0.5rem;
 }
 
 .mensaje-error {
