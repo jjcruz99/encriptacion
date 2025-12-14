@@ -8,6 +8,7 @@
 @import 'componets/input.css';
 @import 'componets/label.css';
 @import 'componets/textarea.css';
+@import 'componets/select.css';
 
 /* 3. Layout (estructura de la página) */
 @import 'layout/footer.css';

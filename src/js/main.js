@@ -1,4 +1,3 @@
-// Prueba de encriptación DES
 
 import { xor } from './utils/xor.js';
 import { textoAHex } from './utils/texto-hex.js';
@@ -10,50 +9,61 @@ import { mostrarToast,mostrarMensajeError,ocultarMensajeError } from './utils/no
 
 function encriptarDato() {
     try{
-    ocultarMensajeError();
-    //obtener datos de los inputs
-    const dato = document.getElementById('dato-encriptar').value;
-    const clave = document.getElementById('clave-encriptar').value;
-    
-    //validar que los datos no esten vacios
-    if (dato === '') {    
-        mostrarMensajeError(1);  
-    }
-    else{
-        ocultarMensajeError(1);
-    }
+        ocultarMensajeError();
+        //obtener datos de los inputs
+        const dato = document.getElementById('dato-encriptar').value;
+        const clave = document.getElementById('clave-encriptar').value;
+        const tipoEas = document.getElementById('opciones').value;
+        
+        //validar que los datos no esten vacios
+        if (dato === '') {    
+            mostrarMensajeError(1);  
+        }
+        else{
+            ocultarMensajeError(1);
+        }
 
-    if (clave === '') {     
-        mostrarMensajeError(2);
-    }
-    else{
-        ocultarMensajeError(2);
-    }
+        if (clave === '') {     
+            mostrarMensajeError(2);
+        }
+        else{
+            ocultarMensajeError(2);
+        }
 
-    if(dato === '' || clave === ''){
-        mostrarToast('Por favor, diligencie los campos 😥.',"error");
-         return null;  
-    }
-    
-    //realizar conversión a HEX
-    const resultadoHex = textoAHex(dato);
-    document.getElementById('resultado-encriptacion').value = `HEX : ${resultadoHex}`;
+        if(dato === '' || clave === ''){
+            mostrarToast('Por favor, diligencie los campos 😥.',"error");
+            return null;  
+        }
+        
+        //realizar conversión a HEX
+        const resultadoHex = textoAHex(dato);
+        document.getElementById('resultado-encriptacion').value = `HEX : ${resultadoHex}`;
 
-    // encriptar dato EAS ECB
-    const datoEncriptado = encryptAES_ECB_CustomZeroPadding(resultadoHex, clave); 
-    document.getElementById('resultado-encriptacion').value += `\nAES-ECB: ${datoEncriptado}`;
-    
-    //encriptar base64
-    const datoBase64 = hexToBase64(datoEncriptado);
-    document.getElementById('resultado-encriptacion').value += `\nBase64: ${datoBase64}`; 
+        // encriptar dato segun tipo de eas
+        let datoEncriptado = '';
 
-    if(datoBase64){
+        if(tipoEas === "item1"){
+            datoEncriptado = encryptAES_ECB_CustomZeroPadding(resultadoHex, clave); 
+            document.getElementById('resultado-encriptacion').value += `\nAES-ECB: ${datoEncriptado}`;
+        }
+        else if(tipoEas === "item2"){
+            const iv = '0000000000000000';
+            datoEncriptado = encryptAES_CBC(resultadoHex, clave, iv);
+            document.getElementById('resultado-encriptacion').value += `\nAES-CBC: ${datoEncriptado}`;
+        }
+        
+
+        //encriptar base64
+        const datoBase64 = hexToBase64(datoEncriptado);
+        document.getElementById('resultado-encriptacion').value += `\nBase64: ${datoBase64}`; 
+
+        if(datoBase64){
             mostrarToast("Encriptación ¡Exitosa 🤗!");
-    }
+        }
  
     } 
     catch (error) {
-        console.error('Error en la encriptación. Detalles: ', error);
+        console.error('Error en la encriptación. Detalles: ' + error);
         return null;
     }   
 }
@@ -127,14 +137,6 @@ function calcularPinblock() {
     const pan= calcularPinpan.slice(16,32);
     const pinAnsi = xor(pin,pan).toUpperCase();
  
-    //Prueba
-    if(pin === "046481FFFFFFFFFF" && pan === "0000467033549341"){
-        console.log("Funciona pin y pan");
-    }
-    if(pinAnsi === "0464C78FCCAB6CBE"){
-        console.log("PinAnsi Correcto");
-    }
-
     //Calcular pinblock
     const pinblock = generarPinblock(pinAnsi,keyDes,iv);
 
@@ -169,7 +171,6 @@ function calcularPinblock() {
     return null;
     }
 }
-
 
 
 //Calculo de XOR
