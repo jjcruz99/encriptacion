@@ -8,20 +8,45 @@
 export function textoAHex(text) {
     let hexResult = '';
     
-    // Recorrer cada caracter de la cadena de texto
+    
     for (let i = 0; i < text.length; i++) {
         // Obtener el valor del código del caracter (ASCII/UTF-8)
         const charCode = text.charCodeAt(i);
         
         // Convertir el valor a una cadena hexadecimal
-        // padStart(2, '0') asegura que cada valor tenga dos dígitos
         const hex = charCode.toString(16).padStart(2, '0');
-        
-        // Agregar el valor hexadecimal al resultado, con un espacio
-        // para separarlo del siguiente
+
         hexResult += hex + ' ';
     }
-    
-    // Eliminar el espacio final para limpiar el resultado
+
     return hexResult.trim();
+}
+
+
+export function hexATexto(hex) {
+    try {
+        
+        const cleanedHex = hex.replace(/\s/g, '');
+
+        let textResult = '';
+
+        
+        for (let i = 0; i < cleanedHex.length; i += 2) {
+            
+            const hexPair = cleanedHex.substring(i, i + 2);
+            
+            // base 10 (decimal)
+            const byteValue = parseInt(hexPair, 16);
+            
+            // Convertir el valor decimal al caracter correspondiente
+            textResult += String.fromCharCode(byteValue);
+        }
+
+    
+        return textResult.replace(/\0/g, '');
+
+    } catch (error) {
+        console.error("Error al convertir Hex a Texto:", error);
+        return null;
+    }
 }

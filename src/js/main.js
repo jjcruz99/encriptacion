@@ -1,8 +1,8 @@
 
 import { xor } from './utils/xor.js';
-import { textoAHex } from './utils/texto-hex.js';
-import {encryptAES_ECB_CustomZeroPadding,encryptAES_CBC} from './algorithms/aes.js';
-import { hexToBase64 } from './utils/base64.js';
+import { textoAHex,hexATexto} from './utils/texto-hex.js';
+import {encryptAES_ECB_CustomZeroPadding,encryptAES_CBC,decryptAES_ECB_CustomZeroPadding,decryptAES_CBC} from './algorithms/aes.js';
+import { hexToBase64, base64ToHex} from './utils/base64.js';
 import { pinPan } from './utils/pin-pan.js';
 import { generarPinblock } from './algorithms/3des.js';
 import { mostrarToast,mostrarMensajeError,ocultarMensajeError } from './utils/notificador.js';
@@ -67,7 +67,6 @@ function encriptarDato() {
         return null;
     }   
 }
-
 
 //Calculo de PinBlock
 function calcularPinblock() {
@@ -271,7 +270,6 @@ document.getElementById('boton-encriptar').addEventListener('click', encriptarDa
 document.getElementById('boton-nav-eas').addEventListener('click',() => administradorFormularios('eas'));
 document.getElementById('boton-nav-pinblock').addEventListener('click',() => administradorFormularios('pinblock'));
 document.getElementById('boton-nav-xor').addEventListener('click',() => administradorFormularios('xor'));
-
 
 administradorFormularios('eas');
 console.log("Main JS cargado correctamente.");

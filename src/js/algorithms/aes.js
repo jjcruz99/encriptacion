@@ -74,3 +74,47 @@ export function encryptAES_CBC(hexData, hexKey, hexIv) {
         return null;
     }
 }
+
+export function decryptAES_ECB_CustomZeroPadding(encryptedHex, hexKey) {
+    try {
+        const key = CryptoJS.enc.Hex.parse(hexKey);
+        
+        const cipherParams = CryptoJS.lib.CipherParams.create({
+            ciphertext: CryptoJS.enc.Hex.parse(encryptedHex)
+        });
+
+        const decrypted = CryptoJS.AES.decrypt(cipherParams, key, {
+            mode: CryptoJS.mode.ECB,
+            padding: CryptoJS.pad.NoPadding
+        });
+
+        // Convertimos el resultado a string Hexadecimal
+        return decrypted.toString(CryptoJS.enc.Hex);
+    } catch (error) {
+        console.error("Error en la desencriptación AES-ECB:", error);
+        return null;
+    }
+}
+
+export function decryptAES_CBC(encryptedHex, hexKey, hexIv) {
+    try {
+        const key = CryptoJS.enc.Hex.parse(hexKey);
+        const iv = CryptoJS.enc.Hex.parse(hexIv);
+        
+        const cipherParams = CryptoJS.lib.CipherParams.create({
+            ciphertext: CryptoJS.enc.Hex.parse(encryptedHex)
+        });
+
+        const decrypted = CryptoJS.AES.decrypt(cipherParams, key, {
+            iv: iv,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.NoPadding
+        });
+
+        // Devolvemos en mayúsculas para mantener consistencia con tu método de encriptación
+        return decrypted.toString(CryptoJS.enc.Hex).toUpperCase();
+    } catch (error) {
+        console.error("Error en la desencriptación AES-CBC:", error);
+        return null;
+    }
+}
