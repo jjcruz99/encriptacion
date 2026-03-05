@@ -29,8 +29,7 @@ export function hexATexto(hex) {
         const cleanedHex = hex.replace(/\s/g, '');
 
         let textResult = '';
-
-        
+ 
         for (let i = 0; i < cleanedHex.length; i += 2) {
             
             const hexPair = cleanedHex.substring(i, i + 2);
