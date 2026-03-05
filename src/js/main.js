@@ -1,11 +1,28 @@
 
 import { xor } from './utils/xor.js';
-import { textoAHex } from './utils/texto-hex.js';
-import {encryptAES_ECB_CustomZeroPadding,encryptAES_CBC} from './algorithms/aes.js';
-import { hexToBase64 } from './utils/base64.js';
+import { textoAHex,hexATexto} from './utils/texto-hex.js';
+import {encryptAES_ECB_CustomZeroPadding,encryptAES_CBC,decryptAES_ECB_CustomZeroPadding,decryptAES_CBC} from './algorithms/aes.js';
+import { hexToBase64, base64ToHex} from './utils/base64.js';
 import { pinPan } from './utils/pin-pan.js';
 import { generarPinblock } from './algorithms/3des.js';
 import { mostrarToast,mostrarMensajeError,ocultarMensajeError } from './utils/notificador.js';
+
+
+const selectorProceso = document.getElementById("opciones-proceso"); 
+const botonAccion = document.getElementById("boton-encriptar");
+
+const actualizarInterfaz = () => {
+    const tipoProceso = selectorProceso.value;
+    
+    if (tipoProceso === "desencriptar") {
+        botonAccion.textContent = "🛡️ Desencriptar dato";
+    } else {
+        botonAccion.textContent = "🛡️ Encriptar dato";
+    }
+};
+
+selectorProceso.addEventListener("change", actualizarInterfaz);
+
 
 function encriptarDato() {
     try{
@@ -14,7 +31,8 @@ function encriptarDato() {
         const dato = document.getElementById('dato-encriptar').value;
         const clave = document.getElementById('clave-encriptar').value;
         const tipoEas = document.getElementById('opciones').value;
-        
+        const tipoProceso = document.getElementById('opciones-proceso').value;
+        const iv = '0000000000000000';
         //validar que los datos no esten vacios
         if (dato === '') {    
             mostrarMensajeError(1);  
@@ -35,39 +53,70 @@ function encriptarDato() {
             return null;  
         }
         
-        //realizar conversión a HEX
-        const resultadoHex = textoAHex(dato);
-        document.getElementById('resultado-encriptacion').value = `HEX : ${resultadoHex}`;
 
-        // encriptar dato segun tipo de eas
-        let datoEncriptado = '';
+        if(tipoProceso === "encriptar" ){
 
-        if(tipoEas === "item1"){
-            datoEncriptado = encryptAES_ECB_CustomZeroPadding(resultadoHex, clave); 
-            document.getElementById('resultado-encriptacion').value += `\nAES-ECB: ${datoEncriptado}`;
+            //realizar conversión a HEX
+            const resultadoHex = textoAHex(dato);
+            document.getElementById('resultado-encriptacion').value = `HEX : ${resultadoHex}`;
+
+            // encriptar dato segun tipo de eas
+            let datoEncriptado = '';
+
+            if(tipoEas === "item1"){
+                datoEncriptado = encryptAES_ECB_CustomZeroPadding(resultadoHex, clave); 
+                document.getElementById('resultado-encriptacion').value += `\nAES-ECB: ${datoEncriptado}`;
+            }
+            else if(tipoEas === "item2"){
+                
+                datoEncriptado = encryptAES_CBC(resultadoHex, clave, iv);
+                document.getElementById('resultado-encriptacion').value += `\nAES-CBC: ${datoEncriptado}`;
+            }
+
+            //encriptar base64
+            const datoBase64 = hexToBase64(datoEncriptado);
+            document.getElementById('resultado-encriptacion').value += `\nBase64: ${datoBase64}`; 
+
+            if(datoBase64){
+                mostrarToast("Encriptación ¡Exitosa 🤗!");
+            }
         }
-        else if(tipoEas === "item2"){
-            const iv = '0000000000000000';
-            datoEncriptado = encryptAES_CBC(resultadoHex, clave, iv);
-            document.getElementById('resultado-encriptacion').value += `\nAES-CBC: ${datoEncriptado}`;
-        }
-        
+        else if(tipoProceso === "desencriptar"){
+            
+            const validarDatoBase64 = dato.slice(-2);
 
-        //encriptar base64
-        const datoBase64 = hexToBase64(datoEncriptado);
-        document.getElementById('resultado-encriptacion').value += `\nBase64: ${datoBase64}`; 
+            if(validarDatoBase64 === "=="){
 
-        if(datoBase64){
-            mostrarToast("Encriptación ¡Exitosa 🤗!");
+                let datoDesencriptadoEAS = '';
+                let base64Ahex= base64ToHex(dato);
+                
+                document.getElementById('resultado-encriptacion').value = `Base64-Hex: ${base64Ahex}`;
+
+                if(tipoEas === "item1"){
+                    datoDesencriptadoEAS = decryptAES_ECB_CustomZeroPadding(base64Ahex,clave);
+                }
+                else if(tipoEas === "item2"){
+                    datoDesencriptadoEAS = decryptAES_CBC(base64Ahex,clave,iv);
+                }
+                document.getElementById('resultado-encriptacion').value += `\nEAS-HEX: ${datoDesencriptadoEAS}`;
+
+                let hexToTexto = hexATexto(datoDesencriptadoEAS);
+                document.getElementById('resultado-encriptacion').value += `\nHEX a Texto: ${hexToTexto}`;
+
+                mostrarToast("Dato desencriptado 😉.");
+            }
+            else{
+                mostrarToast('❌ Error Digite el dato en base 64',"error");
+                 return null;    
+            }
+
         }
- 
     } 
     catch (error) {
         console.error('Error en la encriptación. Detalles: ' + error);
         return null;
     }   
 }
-
 
 //Calculo de PinBlock
 function calcularPinblock() {
@@ -241,7 +290,6 @@ function administradorFormularios(formulario){
         return;
     }
 
-
     if (contenedores.some(c => !c.element)) {
         console.error('ERROR: Falta un elemento contenedor en el DOM.');
         return;
@@ -272,7 +320,6 @@ document.getElementById('boton-nav-eas').addEventListener('click',() => administ
 document.getElementById('boton-nav-pinblock').addEventListener('click',() => administradorFormularios('pinblock'));
 document.getElementById('boton-nav-xor').addEventListener('click',() => administradorFormularios('xor'));
 
-
 administradorFormularios('eas');
-console.log("Main JS cargado correctamente.");
+console.info("Main JS cargado correctamente.");
 

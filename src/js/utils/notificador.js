@@ -22,7 +22,7 @@ export function mostrarMensajeError(indice) {
 
   switch (indice) {
     case 1:
-        document.getElementById(selectorMensaje).textContent = "Digite el número de la TC o cedula que desea encriptar.";
+        document.getElementById(selectorMensaje).textContent = "Digite el dato a procesar.";
         break;
     case 2:
         document.getElementById(selectorMensaje).textContent = "Digite la llave de 16 bits en Hexadecimal.";
@@ -60,33 +60,33 @@ export function ocultarMensajeError(indice) {
     switch(indice){
         case 1:
              document.getElementById(selectorMensaje).textContent = "";
-        break;
+            break;
          case 2:
              document.getElementById(selectorMensaje).textContent = "";
-        break;
-    case 3:
-        document.getElementById(selectorMensaje).textContent = "";
-        break;
-    case 4:
-        document.getElementById(selectorMensaje).textContent = "";
-        break;
-    case 5:
-        document.getElementById(selectorMensaje).textContent = "";
-        break;
-    case 6:
-        document.getElementById(selectorMensaje).textContent = "";
-        break;
-    case 7:
-        document.getElementById(selectorMensaje).textContent = "";
-        break;
-    case 8:
-        document.getElementById(selectorMensaje).textContent = "";
-        break;
-    case 9:
-        document.getElementById(selectorMensaje).textContent = "";
-        break;
+             break;
+        case 3:
+            document.getElementById(selectorMensaje).textContent = "";
+            break;
+        case 4:
+            document.getElementById(selectorMensaje).textContent = "";
+            break;
+        case 5:
+            document.getElementById(selectorMensaje).textContent = "";
+            break;
+        case 6:
+            document.getElementById(selectorMensaje).textContent = "";
+            break;
+        case 7:
+            document.getElementById(selectorMensaje).textContent = "";
+            break;
+        case 8:
+            document.getElementById(selectorMensaje).textContent = "";
+            break;
+        case 9:
+             document.getElementById(selectorMensaje).textContent = "";
+            break;
         default:
-        break;
+            break;
     }
 
   

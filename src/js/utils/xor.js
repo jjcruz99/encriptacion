@@ -31,11 +31,9 @@ export function xor(hex1, hex2) {
             // Realizar la operación XOR bit a bit
             const xorResult = int1 ^ int2;
 
-            // Convertir el resultado entero de nuevo a una cadena hexadecimal
-            // padStart(2, '0') asegura que el resultado tenga siempre dos dígitos (ej. 'a' se vuelve '0a')
+            // padStart(2, '0') asegura que el resultado tenga siempre dos dígitos.
             const hexResult = xorResult.toString(16).padStart(2, '0');
 
-            // Añadir el resultado a la cadena final
             result += hexResult;
     }
    

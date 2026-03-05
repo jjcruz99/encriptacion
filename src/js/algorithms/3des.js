@@ -8,11 +8,11 @@
  */
 export function generarPinblock(pinAnsi, key, iv) {
   try {
-    // Convertir los datos a WordArray de CryptoJS, interpretando como hexadecimal
+    // Convertir los datos a WordArray de CryptoJS
     const keyHex = CryptoJS.enc.Hex.parse(key);
     const ivHex = CryptoJS.enc.Hex.parse(iv);
 
-    // Convertir el pinAnsi a WordArray también (asumiendo que es hexadecimal)
+    // Convertir el pinAnsi a WordArray 
     const pinAnsiHex = CryptoJS.enc.Hex.parse(pinAnsi);
 
     // Encriptar utilizando CryptoJS
@@ -22,12 +22,12 @@ export function generarPinblock(pinAnsi, key, iv) {
       {
         iv: ivHex,
         mode: CryptoJS.mode.CBC,
-        padding: CryptoJS.pad.NoPadding // Importante:  Eliminamos el padding
+        padding: CryptoJS.pad.NoPadding 
       }
     );
 
     // Devolver el texto cifrado en formato hexadecimal
-    return encrypted.ciphertext.toString(CryptoJS.enc.Hex).toUpperCase(); // Convertir a hexadecimal y mayúsculas
+    return encrypted.ciphertext.toString(CryptoJS.enc.Hex).toUpperCase(); 
   } catch (error) {
     console.log("Error al encriptar: " + error);
     return null;
