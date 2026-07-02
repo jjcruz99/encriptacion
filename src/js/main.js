@@ -6,6 +6,7 @@ import { hexToBase64, base64ToHex} from './utils/base64.js';
 import { pinPan } from './utils/pin-pan.js';
 import { generarPinblock } from './algorithms/3des.js';
 import { mostrarToast,mostrarMensajeError,ocultarMensajeError } from './utils/notificador.js';
+import { encryptDES,decryptDES} from './algorithms/des.js';
 
 
 const selectorProceso = document.getElementById("opciones-proceso"); 
@@ -272,12 +273,14 @@ function administradorFormularios(formulario){
     
     const contenedorEas = document.getElementById('contenedor-eas');
     const contenedorPinblock = document.getElementById('contenedor-pinblock');
+    const contedor3Des = document.getElementById('contenedor-3des');
     const contenedorXor = document.getElementById('contenedor-xor');
   
    // Lista de diccionarios para los contenedores
     const contenedores = [
         { id: 'eas', element: contenedorEas },
         { id: 'pinblock', element: contenedorPinblock },
+        { id: '3des', element: contedor3Des},
         { id: 'xor', element: contenedorXor }
     ]; 
 
@@ -318,8 +321,24 @@ document.getElementById('boton-pinblok').addEventListener('click',calcularPinblo
 document.getElementById('boton-encriptar').addEventListener('click', encriptarDato);
 document.getElementById('boton-nav-eas').addEventListener('click',() => administradorFormularios('eas'));
 document.getElementById('boton-nav-pinblock').addEventListener('click',() => administradorFormularios('pinblock'));
+document.getElementById('boton-nav-3des').addEventListener('click',() => administradorFormularios('3des'));
 document.getElementById('boton-nav-xor').addEventListener('click',() => administradorFormularios('xor'));
 
 administradorFormularios('eas');
 console.info("Main JS cargado correctamente.");
+
+//Todo prueba de encriptacion 3DES:
+const datoPrueba = '9981860040031258';
+const keyPrueba =  '0123456789ACB0F90123456789ACB0F90123456789ACB0F9';
+const IVPrueba = '0000000000000000'
+const validacion = '4ee80538bb525bab'.toUpperCase();
+let resultado3DES = generarPinblock(datoPrueba,keyPrueba,IVPrueba);
+console.log(`Resultado DES: ${resultado3DES}`);
+
+if(resultado3DES === validacion ){
+    console.info('✅ El resultado es correcto');
+}
+else{
+    console.info('❌ El resultado esta errado');
+}
 
