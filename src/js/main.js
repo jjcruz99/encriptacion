@@ -4,7 +4,7 @@ import { textoAHex,hexATexto} from './utils/texto-hex.js';
 import {encryptAES_ECB_CustomZeroPadding,encryptAES_CBC,decryptAES_ECB_CustomZeroPadding,decryptAES_CBC} from './algorithms/aes.js';
 import { hexToBase64, base64ToHex} from './utils/base64.js';
 import { pinPan } from './utils/pin-pan.js';
-import { generarPinblock } from './algorithms/3des.js';
+import { TripleDES_CBC } from './algorithms/3des.js';
 import { mostrarToast,mostrarMensajeError,ocultarMensajeError } from './utils/notificador.js';
 import { encryptDES,decryptDES} from './algorithms/des.js';
 
@@ -20,7 +20,7 @@ const actualizarInterfaz = () => {
     } else {
         botonAccion.textContent = "🛡️ Encriptar dato";
     }
-};
+}
 
 selectorProceso.addEventListener("change", actualizarInterfaz);
 
@@ -28,13 +28,13 @@ selectorProceso.addEventListener("change", actualizarInterfaz);
 function encriptarDato() {
     try{
         ocultarMensajeError();
-        //obtener datos de los inputs
+        
         const dato = document.getElementById('dato-encriptar').value;
         const clave = document.getElementById('clave-encriptar').value;
         const tipoEas = document.getElementById('opciones').value;
         const tipoProceso = document.getElementById('opciones-proceso').value;
         const iv = '0000000000000000';
-        //validar que los datos no esten vacios
+        
         if (dato === '') {    
             mostrarMensajeError(1);  
         }
@@ -188,7 +188,7 @@ function calcularPinblock() {
     const pinAnsi = xor(pin,pan).toUpperCase();
  
     //Calcular pinblock
-    const pinblock = generarPinblock(pinAnsi,keyDes,iv);
+    const pinblock = TripleDES_CBC(pinAnsi,keyDes,iv);
 
     //conversion a HEX
     const hexPinblock = textoAHex(pinblock);
@@ -204,16 +204,10 @@ function calcularPinblock() {
     document.getElementById('resultado-pinblock').value += `\nPINBLOCK: ${pinblock}`;
     document.getElementById('resultado-pinblock').value += `\nPinAnsi: ${pinAnsi}`;
 
-    if(pinblok64){
-        mostrarToast("Generacion de Pinblock ¡Exitoso 🤗!");
-    }
+        if(pinblok64){
+            mostrarToast("Generacion de Pinblock ¡Exitoso 🤗!");
+        }
     
-
-    // validacion para un dato de prueba
-    if (pinblok64 === "DPjqM6m6jOZZHIq9YQmYLQ=="){
-        alert("Pinblock Correcto");
-    }
-
     } 
     catch (error) {
     console.error('Error en el cálculo del PINBLOCK. Detalles: ', error);
@@ -223,7 +217,71 @@ function calcularPinblock() {
 }
 
 
-//Calculo de XOR
+function encriptarDatos3Des(){
+
+    try{
+        const dato = document.getElementById('dato-encriptar-3des').value;
+        const key = document.getElementById('clave-encriptar-3des').value;
+        const vector = document.getElementById('iv-encriptar-3des').value;
+        const tipo3Des = document.getElementById('opciones-3des').value;
+        const tipoProceso = document.getElementById('opciones-proceso-3des').value;
+        const imprimirResultado = document.getElementById('resultado-encriptacion-3des');
+
+        imprimirResultado.value = "";
+
+        if (dato === '') {    
+             mostrarMensajeError(10);  
+        }
+        else{
+            ocultarMensajeError(10);
+        }
+
+        if (key === '') {     
+            mostrarMensajeError(11);
+        }
+        else{
+            ocultarMensajeError(11);
+        }
+
+        if (vector === '' || vector.length <16 ) {     
+            mostrarMensajeError(12);
+        }
+        else{
+            ocultarMensajeError(12);
+        }
+
+        if(dato === '' || key === ''){
+            mostrarToast('Por favor, diligencie los campos 😥.',"error");
+            return null;  
+        }
+
+        if(tipoProceso === "encriptar"){
+
+            if(tipo3Des === "CBC"){
+                imprimirResultado.value = TripleDES_CBC(dato,key,vector);
+            }
+            else if(tipo3Des === "ECB"){
+                alert("⚠️ En desarrollo ECB... ");
+            }
+
+        }
+        else if(tipoProceso === "desencriptar"){
+            alert("⚠️ En desarrollo Desencriptar... ");
+        }
+        
+
+        if(imprimirResultado.value && imprimirResultado.value != "null"){
+            mostrarToast("Encriptacion 3DES ¡Exitoso 🤗!");
+        }
+
+    }
+    catch(error){
+        mostrarToast("Error al encriptar 3DES. Detalles: "+error);
+        return null;
+    }
+   
+}
+
 
 function calcularXOR() {
 
@@ -319,6 +377,8 @@ function administradorFormularios(formulario){
 document.getElementById('boton-xor').addEventListener('click', calcularXOR);
 document.getElementById('boton-pinblok').addEventListener('click',calcularPinblock);
 document.getElementById('boton-encriptar').addEventListener('click', encriptarDato);
+document.getElementById('boton-encriptar-3des').addEventListener('click',encriptarDatos3Des);
+
 document.getElementById('boton-nav-eas').addEventListener('click',() => administradorFormularios('eas'));
 document.getElementById('boton-nav-pinblock').addEventListener('click',() => administradorFormularios('pinblock'));
 document.getElementById('boton-nav-3des').addEventListener('click',() => administradorFormularios('3des'));
@@ -327,18 +387,5 @@ document.getElementById('boton-nav-xor').addEventListener('click',() => administ
 administradorFormularios('eas');
 console.info("Main JS cargado correctamente.");
 
-//Todo prueba de encriptacion 3DES:
-const datoPrueba = '9981860040031258';
-const keyPrueba =  '0123456789ACB0F90123456789ACB0F90123456789ACB0F9';
-const IVPrueba = '0000000000000000'
-const validacion = '4ee80538bb525bab'.toUpperCase();
-let resultado3DES = generarPinblock(datoPrueba,keyPrueba,IVPrueba);
-console.log(`Resultado DES: ${resultado3DES}`);
 
-if(resultado3DES === validacion ){
-    console.info('✅ El resultado es correcto');
-}
-else{
-    console.info('❌ El resultado esta errado');
-}
 

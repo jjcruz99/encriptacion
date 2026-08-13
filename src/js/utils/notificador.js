@@ -22,7 +22,7 @@ export function mostrarMensajeError(indice) {
 
   switch (indice) {
     case 1:
-        document.getElementById(selectorMensaje).textContent = "Digite el dato a procesar.";
+        document.getElementById(selectorMensaje).textContent = "Digite el dato a incriptar.";
         break;
     case 2:
         document.getElementById(selectorMensaje).textContent = "Digite la llave de 16 bits en Hexadecimal.";
@@ -47,6 +47,15 @@ export function mostrarMensajeError(indice) {
         break;
     case 9:
         document.getElementById(selectorMensaje).textContent = "Digite un dato ejm: 25DC";
+        break;
+    case 10:
+        document.getElementById(selectorMensaje).textContent = "Diligencie el campo";
+        break;
+    case 11:
+        document.getElementById(selectorMensaje).textContent = "Digite la llave";
+        break;
+   case 12:
+        document.getElementById(selectorMensaje).textContent = "Valide la longitud del vector";
         break;
     default:
         break;
@@ -83,6 +92,15 @@ export function ocultarMensajeError(indice) {
             document.getElementById(selectorMensaje).textContent = "";
             break;
         case 9:
+             document.getElementById(selectorMensaje).textContent = "";
+             break;
+        case 10:
+             document.getElementById(selectorMensaje).textContent = "";
+            break;
+        case 11:
+             document.getElementById(selectorMensaje).textContent = "";
+            break;
+        case 12:
              document.getElementById(selectorMensaje).textContent = "";
             break;
         default:

@@ -54,7 +54,7 @@
                 </div> 
 
                 <div class="contenedor-tipo-eas" id="tipo-encriptacion">
-                    <label for="tipo-eas" id="etiqueta-tipo-eas">Tipo de encriptación EAS:</label>
+                    <label id="etiqueta-tipo-eas" for="opciones">Tipo de encriptación EAS:</label>
                     <select id="opciones" name="opcion_lista">
                         <option value="item1" selected>ECB</option> 
                         <option value="item2">CBC</option>
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="contenedor-tipo-eas" id="tipo-proceso">
-                    <label for="seleccionar-tipo-proceso" id="etiqueta-tipo-eas">Tipo de proceso a realizar</label>
+                    <label for="opciones-proceso" id="etiqueta-tipo-eas">Tipo de proceso a realizar</label>
                     <select id="opciones-proceso" name="opcion_lista_proceso">
                         <option value="encriptar" selected>ENCRIPTAR</option> 
                         <option value="desencriptar">DESENCRIPTAR</option>
@@ -111,7 +111,7 @@
                 <div class="subcontenedor-formulario" id="subcontenedor-formulario-pinblock-keydes">
                     <div>
                         <img src="src/pictures/icono_llave_des.png" class="icono-formulario" alt="">
-                        <label for="clave-pinblock" id="etiqueta-clave-pinblock">LLave DES</label>
+                        <label for="clave-pinblock" id="etiqueta-clave-pinblock">LLave 3DES</label>
                         <span id="mensaje-linea-5" class="mensaje-error"> </span>
                     </div>
                     
@@ -160,41 +160,41 @@
                     <div>
                         <img src="src/pictures/icono_dato_dos.png" class="icono-formulario" id="icono-dato"  alt="imagen-dato">
                         <label for="dato-encriptar" id="etiqueta-dato-encriptar-3des" class="etiqueta-formulario-3des">Dato de entrada</label>
-                        <span id="mensaje-linea-1" class="mensaje-error" ></span>
+                        <span id="mensaje-linea-10" class="mensaje-error" ></span>
                     </div>
-                    <input type="text" id="dato-encriptar" size="40" placeholder="Ingrese el dato a encriptar (ejm:8888222288886666)">
+                    <input type="text" id="dato-encriptar-3des" size="40" placeholder="Ingrese el dato a encriptar (ejm:8888222288886666)">
                 </div>   
 
                 <div class="subcontenedor-formulario" id="subcontenedor-formulario-3des-key">
                     <div>
                         <img src="src/pictures/icono_key_eas.png" class="icono-formulario" id="icono-key-3des"  alt="imagen-key-3des">
                         <label for="clave-encriptar" id="etiqueta-clave-encriptar-3des" class="etiqueta-formulario-3des">Llave 3DES</label> 
-                        <span id="mensaje-linea-2" class="mensaje-error" ></span> 
+                        <span id="mensaje-linea-11" class="mensaje-error" > </span> 
                     </div>
-                    <input type="text" id="clave-encriptar" size="40" placeholder="Ingrese la llave ( ejm:0000FFFF8888CCCCAAAAFFFF0000DDDD )">
+                    <input type="text" id="clave-encriptar-3des" size="40" placeholder="Ingrese la llave ( ejm:0000FFFF8888CCCCAAAAFFFF0000DDDD )">
                 </div> 
 
                 <div class="subcontenedor-formulario" id="subcontenedor-formulario-3des-iv">
                     <div>
                         <img src="src/pictures/icon_candado.png" class="icono-formulario" id="icono-dato"  alt="imagen-dato">
-                        <label for="iv-encriptar" id="etiqueta-iv-encriptar-3des" class="etiqueta-formulario-3des">IV</label>
-                        <span id="mensaje-linea-1" class="mensaje-error" ></span>
+                        <label for="iv-encriptar-3des" id="etiqueta-iv-encriptar-3des" class="etiqueta-formulario-3des">IV</label>
+                        <span id="mensaje-linea-12" class="mensaje-error" ></span>
                     </div>
 
-                    <input type="text" id="dato-encriptar" size="40" placeholder="Ingrese el dato a encriptar (ejm:0000000000000000)">
+                    <input type="text" id="iv-encriptar-3des" size="40" value="0000000000000000">
                 </div>  
 
                 <div class="contenedor-tipo-3des" id="tipo-encriptacion-3des">
-                    <label for="tipo-3des" id="etiqueta-tipo-3des">Tipo de 3DES:</label>
+                    <label for="opciones-3des" id="etiqueta-tipo-3des">Tipo de 3DES:</label>
                     <select id="opciones-3des" name="opcion_lista">
-                        <option value="item1" selected>ECB</option> 
-                        <option value="item2">CBC</option>
+                        <option value="ECB" selected>ECB</option> 
+                        <option value="CBC">CBC</option>
                     </select>
                 </div>
 
                 <div class="contenedor-tipo-3des" id="tipo-proceso-3des">
-                    <label for="seleccionar-tipo-proceso" id="etiqueta-tipo-3des">Tipo de proceso a realizar</label>
-                    <select id="opciones-proceso" name="opcion_lista_proceso">
+                    <label for="opciones-proceso-3des" id="etiqueta-tipo-3des">Tipo de proceso a realizar</label>
+                    <select id="opciones-proceso-3des" name="opcion_lista_proceso">
                         <option value="encriptar" selected>ENCRIPTAR</option> 
                         <option value="desencriptar">DESENCRIPTAR</option>
                     </select>
@@ -208,10 +208,11 @@
 
             <div class="contenedor-resultado">
                 <h3 for="resultado-encriptacion" id="titulo-resultado-3des" class="titulo-resultado">Resultado 3DES</h3>
-                <textarea  id="resultado-encriptacion" rows="3" cols="55" readonly></textarea>
+                <textarea  id="resultado-encriptacion-3des" rows="1" cols="55" readonly></textarea>
             </div>
 
         </section>
+
 
         <section id="contenedor-xor" class = "contenedor-principal" >
 
